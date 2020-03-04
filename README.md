@@ -1,16 +1,11 @@
 # Chicken Maze
 
-A new Flutter game.
+This ist the sample code for the book about dart and flutter programming.
 
-## Getting Started
+There are no comments inside because all the explainations are inside the book.
 
-This project is a starting point for a Flutter application.
+The book is available soon in german language at Amazon:
 
-A few resources to get you started if this is your first Flutter project:
+[German Book](https://www.amazon.de/dp/3110690640/ref=cm_sw_em_r_mt_dp_U_TF4xEbN4AZSA7)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![Book](book.jpg)
