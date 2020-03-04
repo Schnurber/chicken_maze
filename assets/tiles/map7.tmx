@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <layer id="1" name="maze" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJydV+2OgkAMrCXnKYIhATne/0lPkm0cx+mu+qNZ2Y8O7XTKupjZ4W5/d/v90I4fzoed7jYW3LCujA7PHcyjTWLuQD47GmN9LHNOeLy3ZrwvcBdYd1o/f5HLLI+XMq5l7GH/DHwO8G4O+XR4Hu05zzhX4yfictof55nfhXwFh1h3q73GOheMfd8J+HfAD98qzyvlpcWn01rg4HNgDIDLexxi3H//NLhUnPfE5wbxq3g5xqgBjkfFPsFv5i7TEftbaA9iZprLdNSBP8XvEUasG1VDnNcLza+VMXiOd+NR5Qe1onKJ5yPv7Jd1NJK/Vr/e7KGb6LlK25O9xsO4XB9cT07P2E/Yz2I6Dxlu5ELFW/vOoDZd4Ge4k+n3xNplTtVa5Jn52+t3JlzWFuJj3+jh90zrg8Dn0WHPGfzwe0Z/xj7Gmq3hoL+rPbSvvguZnjCv2AsUzr7vJnjv7FVHiz338BVygFoJjUUP2ESe8F3DH/Zs5JfPKd1kvSLTkeKN+yT3sqxXZD1lKH6v4FvVGetIfQNUXHzHc3uOp1ZniBO62s9ELbxj+H1Fjb3Du9KvijW7V/JdCvunN3D5ntO6c6u4a7kaCJ/vk3hveCfWbI3vla14Zzr3zf+WWrx4Zwt+sztOZsFdKx+sW5xjXmr6/cbQX+R0j/0fCfYW2w==
+  </data>
+ </layer>
+ <layer id="2" name="grain" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzNlwmOgzAMRX0NQlDF/S/ZVuJrXn/tAB1GHUtRAO97GxHR4zswP870OCtsmJPnvtHN2wncLV7t74YP6IgEN4OG/B2yaVMzXRV/2779VWxHcmd7n3Ce0AwvP/y7y2CsPQ+VXT3e81PZUYHryPSdlaXaoy2erwa5wo/8XTc6yY6Cx205A9MOPpOp/CqHtM95u/E03O6L4sU4RvzEbIm8N6WL/M57s/f/AJoh9ONpp+z3GLM2NU+EH4HTeK99OlM4q1jrDfgb6Kter+ygn9JD4HvVZ6Tr8bv8N7sFtD/rF7eFeyfrG+6KTN+RGZXtmKtq/2g8s3yO8IrJYnrEx1lC3movcgd5ffDem4H0l7RLQkvde+A0rfhOG0jnoLr3OlS9aV5wvrjsiDxWZ+GI/1U/e35Zy+wf6mCeuY9Yo5VNo3req40rwH8rKY+eqxavs00xGOWTsty3Ftf6d/T3h/eq26B80x/64bzVvvk2sGY9v77X1nivQ+ZcwP8pUeD0fHV+P4E7BtQe3w==
+  </data>
+ </layer>
+ <layer id="3" name="enemy" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBheQG2gHTDEwWj4jYJRMAqoCUbLlFFALhhNO4MfjMbRyAOjcT48AQCWagDl
+  </data>
+ </layer>
+</map>

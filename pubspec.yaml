@@ -1,0 +1,59 @@
+name: chicken_maze
+description: A game with flutter and flame.
+version: 1.0.1+3
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flame: ^0.15.2
+  http: ^0.12.0+2
+  crypto: ^2.0.6
+  shared_preferences: ^0.5.2
+  firebase_admob: ^0.5.5
+  cupertino_icons: ^0.1.2
+  
+dev_dependencies:
+  mysql1: ^0.17.0+1
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.7.3"
+
+flutter_icons:
+  android: "launcher_icon" 
+  ios: true
+  image_path: "assets/icon/icon.png"
+
+flutter:
+  assets:
+    - assets/images/logoChicken.png
+    - assets/images/chickenIcon.png
+    - assets/images/chicken.png
+    - assets/images/enemy.png
+    - assets/images/tiles.png
+    - assets/images/grain.png
+    - assets/images/pause.png
+    - assets/tiles/map1.tmx
+    - assets/tiles/map2.tmx
+    - assets/tiles/map3.tmx
+    - assets/tiles/map4.tmx
+    - assets/tiles/map5.tmx
+    - assets/tiles/map6.tmx
+    - assets/tiles/map7.tmx
+    - assets/tiles/map8.tmx
+    - assets/tiles/map9.tmx
+    - assets/tiles/map10.tmx
+    - assets/audio/chicken.mp3
+    - assets/audio/pick.mp3
+    - assets/audio/cry.mp3
+    - assets/audio/music.mp3
+
+  uses-material-design: true
+  fonts:
+    - family: UbuntuMono
+      fonts:
+        - asset: assets/fonts/UbuntuMono-Bold.ttf
+        - asset: assets/fonts/UbuntuMono-Regular.ttf

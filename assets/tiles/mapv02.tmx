@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <layer id="2" name="maze" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJylleFugzAMhEMQbO1AQlrW8f5POpBy6qfDSSvth5UQx/bZvpiSUhoO+T3kI5C5cf6ufB6y1hgtaenHF3a0vyHmd7VlTg/T93KOZDGcp/8M+Q9++VAeX6i719/PPZdWv3TOPHz1fmhlHmOjX9nsVpydNj+Gdal775v0d3xPuLNbjAExvN6uj3ij3m3WU8YQ/ohfC/I811JtSyO2cJZ0zaPHb9ZdNVtM7xy4494tXd8FuUJfvdVruwV5jMG9qB/uWxjJEfe1Qi/8exBjwxrFUo8jXkaYI/475zx2MVvPQ73YcT83fJQUv701uOcx2BPyYMCZZuScnrNyxrnqnNPzLXitGLt31quvsPpM5ByfK5bz3gR85At7tFVfmiM+I5d05S5nSguvaplNz5gRd4VDfec85J78jWrJ3maLsZnO7fjWJJzhqrn/X6L/oLjpeFlDcvuducyeq+/CkuGXPeCMFhf4vifsX81d4eVsZ84+Szxn7YnJ5dHYt+5EtTjr/Qf90hGg
+  </data>
+ </layer>
+ <layer id="3" name="grain" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzFVQkOwyAMyzeAVtX+/8kJCWueZULXXZYqIAXi4BAiImr8FmX43Eaf7Wpro93G18j2D4A7vo7baBHTHg+eJZ7j7e0xbM3sdZXTu2vAr9E4hi0iP/NC82baneHgbG6O49LPFDG49dACGgDV7Kdjx5/3WOUj1mc6N/mvZ1elzfhcxSyPCrVVxh18PrN8nu3t4tLzVs2yfXj9sfCdYaap6oO+y3/MzzTXfon5HVQf+8Sn4+v6n6r7qHEdzBFxoN3JJ3NGbec34Yg1Pxc3x8UczoDfGIB1YRvPAfeVbtp3Y4aen/7TewdkNVN1d/XvDPDGOY1Qa9kvoDms49VdRf1RDRyPV2o0YuF5zEX/sbaa01wjvwn4uAP2XxRa
+  </data>
+ </layer>
+ <layer id="4" name="enemy" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBiaQHWgHTAKhiQYTTfDFwz2uB3s7htoMBo+5AFqhBs1w340HukLAORkASk=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <layer id="2" name="maze" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJyFkFEKwCAMQ53CdLDCQDfvf9Nl0EIoHX48IoWkqSOltIEJ
+   KthVmQYEFJBVRX2M0NzyHtVO8/PHH+Udrldz+dXlXeTlvtyv
+   uB1Z32NxR1fvHexd3WGeCPubr/sLbsoDFQ==
+  </data>
+ </layer>
+ <layer id="3" name="grain" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgkGYgHkiiqZeBiimgqSHFPBCQIkEfLvdKo9GyUDbI
+   jYpI6mTQaJj96GaTEi4gIMmA8Ic0khixekEAAESeAvE=
+  </data>
+ </layer>
+ <layer id="4" name="enemy" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh+QG2gHUABAAAdeAAn
+  </data>
+ </layer>
+</map>

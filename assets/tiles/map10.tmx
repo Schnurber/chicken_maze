@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <layer id="1" name="maze" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJytmuuO2zgMRpUY0850J90Ak17e/0k3AULsyclHy572B2HHtiReP5FULmOMw5V+XenLlb7e6Utz/dvUrbNn3dcrne5yLFc63+8P9+fL/XrEtd7zvsbzftH7jk64Hu88LHruMV779s3blT7Ey80275rnbaddPjCXdU/yOkVnrFtzvcgG5JV6vkAe64N2WdO1dWXeFn1T8/2A/PyG/nIK42iPkvEb5klyePwWOorvZTzKm/yGOjXvZYOfsNNJfJ3Ho4y0b9mDcs/8LPlW51eXkflPNrAeT+NZH5YjxX3ZvbBh0dg14tgFevk9HuPwXe+/3m1QeqOOKj6W++9X3JfdlvEY92+ap+hlo/6TPahjxiH1ST9MMZb8b4aPMz+2bTu7OL7tx+S71iF+Xcb/PkI8LbtRr2XHd6xzhM6/6f0L5pvhcor/0r3l8NWyGk+THZO++T75wXn0drA/EjNKh44Tz2tMrfvv4uMSvl2w7uvIcloPv8bjnlW8Ou6sq+Rf1kOSI+13tivfF06dm+8u49n+zHOsU8rU8cp4NK+J35kcXiuNq/hlDBV2Mq5rHHVCvLNfJVzq7EE+fjfvuW8luSlriq2Ud6T46fJG55SdHJ674u7nxispPZu98/6U8IrvrEf6A/HD+3aHmd3vPTkZ7eb9yftwxZXzAvJxHs987dmru5qH/JHnpIM1f2Fs+jnzi5qfOQsp+V/n68t49HPafZa3GJtcZ1AO24+5gOO345/jjuH743iO60P4NuGy/eam74ot+lWKU94TO2fk2KUvr8X8zB7J32yPGXV5xh5yzt7FtnNZXstHXCu5Lprh35/G+V5yHcI8hnjV1VF+VnqgL6f46PooqW7fgs8p/0yx29WKhY3ek1P8djIkPDDectwxzO98KeGO/apqhsL4VJv8qZ/sjfMuT+Bv+lXK8fmbmLmmy+Qza72g2T4/wwTug6kHk2w5w4Q1rKh6wzb9TE1fPuP4KF7f8I1rCfsk8dNYuhZDW+p4zpXyBvLC/OpDazhXrhxithdu0e3e+JjhMe1ROrSuuPdt6YmmfMrP1mKlI/fHzWsXH+zz8rd71emcYcvvhHv/TPTvNekb7MORz+rzlo8wH6s6jHKzJu3i4Kz7tZ7vbD+0b3R+ZZ74/RJ++1vuPc5rPlNPWQ7K0/kVsYb1TsKvin/2XKteeccctyv7VHsxmzrr+g2Ug7WN+1PJptyHOj9wXWOMTvY56luvXTHwgWdd3u5x1glzpTSH6x7Xf12O0z1n34Yx6vgo23sv4X7jXu6s9u9ioXAh5TLFX4fPqYdkOegf7hN2sdbZg+MYY8yhmVO7LvA5RJdjuM/Abw56lnrWx/Hse6zNv2Me5gzMfWxT932dh9A/fa7Gva18kHmF8+NkB/tqwofSNc9h7ffWX4cTyfaO3a7PkWLM9qMe+Y72MJ+FXc6lq97xeVvpPJ2rGSftx0mvHuO8J9nD+k39QlKycz0nbp+0LvVCf6rcp3TjPD6tYXsQP2/8/9A6zJf4vwRipc+w/gUfCXu6flsXAx1e8b781fUj91LPccGYZNPDeMZd+7zPs29UuUXXY6fPMtfcUkemORLGON587mw9sl/knCmR642071CHtE/Kb13fr81XuGvZkn0om+u+dDafzqBmNcYWe/k+1R/JT9M+2cVLsmvp87P5+lofj2s5f1vrE3W19d4zqL9FPGP6D9BUPrc=
+  </data>
+ </layer>
+ <layer id="2" name="grain" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzdmAtu4zAMRHkNOwmK3P+S3QIdYPIylOTEaNElYNiWaYqSyOGnqmqv/4Mu/66rvXNdG+4cu5icCs/XIJPzi8/fddccuu/fvHom7ZP5jtKqLOm74/0SeFdlpf8p92svtu9rD8+uF9fy9X4L45zP91rz+bdakOP/O21419n6uM5c33x8M51cNvdts3/0vdOp0z2NUe4RWvlHunG+FZnO63bgPikbSfPsNn6tZx91W/Mzo/y0njOIZzw6/6TPK75JGZR/rce9Er/7YpLhfpXswn2N83FM8olJM70pj/9sDQ8pfSfOn0F7PeIa446Pzfz0A3yUl/ae42le8TN2aa5uP3hWfJdM0kcYG+nZ8Y2wcYZbjiXcd//msYvEdXjMSXqt2C/HuphIOR5nKCNhjs/5Ab6VvEB7kjB3FbN8XcR2p5RvJRnJP1bn93fpslX2W8YnjrsO9CXql+R3/jHyxZ8k7hNxX0S7msn0PNr3SjiiizbuPlz1jDuyUc/RqvJ5zHTsMI2x8wxy/WRHvted3lyfy1s5C5+LuZbLYtylDx/dj6QbMdXlJzwlJurctRaeH9ckvE+5Ims65vUaJy78ps+eUWfKv3aMObldXurRn4nzXd3j++h8qa7r/NB17ercV+sh1nw/TbSjWb3qOf1Kf8P3nfZf9XjG4iPWJH+a5Qf+r++v4/Yot+I5e63HWJ6wk/iRcMxlJtt3OcnGSb9pR69SWjsxb6XHdrMxr+GZU/oZ7sYnXTwedj211KvhmhJ2vUuj8381T0g9p86Xkg132MtewCzOpzncP12en/GoXqN/v9qbPDsHm1HKRV0P+kCXU6QequOfaJRbrPRm3A5S36zw7S/TrK9PXr+z30h8YW+Wz+4nXr/QFySrwN/F+nTGKWZxbYxliZgrb7hc75SXM867veuf1ON5xWfTvO/SaI9v9pzioOvBPMZlERdT7ULbSP0n5thVeW85Tj9PsTHVj7PcLdFZWJzyra7mW513Jf/qam5ieLKFVNOI/B+eNe1D46QuzngeNcMKH/N76iUe6bGO4vuMXBf6I/ex87GOh357xD5nGDM6K9ax7CF0dCQnZW+io1QrjXKzkZ6dTfhenJFLk1JdmuLqVs8YmLB0Bc/9nTWD84ivqykph5R063jf7bc5pZzDx0e5+ygmjGoL8bLf5vPQhtL5UY7rneTN+qDEkSN5ZIrTZxHX3tUM3ZwdLjveu70l+069NPZV2acb6TLyBZHk3hd4u39/g+71jBP3yuugD7jtpTNlH87ldDaY6k3GpJQf/GXSXnwCEm1X2A==
+  </data>
+ </layer>
+ <layer id="3" name="enemy" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1rkNACEMBEBXQ/8lXkSIeMRzgpmECBzsCoggS4/N5R46xGo69l+yOU8GALxq1hvYck7vrFRYe/ZSN5oLd5AnAACZvyG76BpAG/dlxAfy2ALT
+  </data>
+ </layer>
+</map>

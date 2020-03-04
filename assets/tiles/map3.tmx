@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="47" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <layer id="2" name="maze" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJydVO0OgyAMrJJ9JUBMcG7v/6SDhCbnrXWyH5dqxev1g64iMlW8Km4GrmT5Gd/vFanzKWayCaz6FjqXwD46d3F0voGj2QCxL/1M7P7UgWdYpwfVMwFHkn2+az9n8as2jLMAL/Oh39Nj8XONUR/3xvuf42QnX+zhCDLpCwYf8x7F4Xy5DqNAvjZ/ZYDP0nm2H17uv/hm+Z6XIw7+hnOo961hE3sneDuiAD/Oi8YLZFmH+jP5VurHGU2ITfb7Izr9GK2bNy8j2qy9pnWPhj7vznp7gnU+/6ifp7nNzQfa+Agi
+  </data>
+ </layer>
+ <layer id="3" name="grain" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJy1lFEOwyAMQ3MNKB9w/0uuk7BmvQakrpslFAghuMFpxH9QztHOccDHGN9vc9xFRc4KH6F7Cnw1PryH+d1WrP1sxsfXsmMTw3wliXGezmtYbFnM33GqOW3f7K3eUff3aQcsuR9xRU38q+9u8y7Wj+ezmnOP6Jt81KlDXP3NdjrMNO56pJ5YS+bwPiOHDp4Nc+r6KdhXzi/TbUSuMerlm//CHUiDGkLW99KhavyUX9YTK+hunSs2Vx5pL+L6Fr+COLwADtgOmw==
+  </data>
+ </layer>
+ <layer id="4" name="enemy" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtARqg8QMetqrhkZTah61ADb7B9pNxAJK3WlMFVeMglGACgCaswGK
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="12" height="60" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="enemy" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="enemy.png" width="128" height="96"/>
+ </tileset>
+ <layer id="1" name="maze" width="12" height="60">
+  <data encoding="base64" compression="zlib">
+   eJy1Ve1OwzAMdBMx2FTQpGXA+z8piVSrx9UfKRI/LC/VzTnbZ6eJyNLtpdtrt4vjh711e9/w6Itx1t/4vTr4xcEPfzfuGXG+uq1GvEWO/Ba4G3mM783gU4lPIR7sGR/x8PJtxIvz9+rj5R/hkXebwFu8ZuNfZdfP+sf4xcHhuUjOJ+pv9j+MXxPPeov6ZfW3iJ/3TH8tfc/2S884X96cZ/XEeef5yfrF88P1V13duj2A801yvWl/zuiZ59PTzxXu1vPDiY/x7uLX09IP12eGf7Sf+X7+zv2y9pvyRv6a//j/eGM+t/qoR1vlmA/Gi/SPtb/Ib01Y8b03qBj1Z61wTZsc+Vi7CrXB75HOW7a7uH+8K/g751u3nlo7l+MrDvPnNxzxitOarwYvrHUL4lt4S8sWf8Rnb4eHP8Mn65enH/UfJ+JH9Yx4WPM7y/8svvxz/GrUIeuXp3f2T9n3Be8q9d+yz8cPItcU/A==
+  </data>
+ </layer>
+ <layer id="2" name="grain" width="12" height="60">
+  <data encoding="base64" compression="zlib">
+   eJydlUmOQyEMRH0N+LRauf8lswlK6amKId4w2JRnU1XV6jcaWG/fNTk7jMl/wvuE18F/DIbirnQ7PPeeMk3uplwXntKA3Dx3nJ1t5PcPTjf8hjXhkcinr7f5Z15dfDVfWifK4znh0/9ErkamfcPIEU/vlUf7nV7nr8N3PbGrF9rPuLFOd8Q+S3GlH5pnp0vt1/5x/XxDzl7F/L/E7+V9WdWXYjLejBP7t4JcmneMm8v3Cp+UZmfqP63THbYj7Z9R33g06FX5NKMd6bxWPRpP6niw0vfkL9+pDW6feuq0x4gz8ZPdqcf0Xu1zs2zm28XtlNLMnvvdn5FmhJuFlF/1ZqLV30XqYa84tCHlczXjiVOV83UaryRPYjz/gl27GXNa9/zzaIe+ey3wb/8S6nkDK8YYFw==
+  </data>
+ </layer>
+ <layer id="3" name="enemy" width="12" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6ClsX9EC+zXAxKQAAB0cx2AhxaA0AAn
+  </data>
+ </layer>
+</map>
