@@ -13,4 +13,4 @@ ConnectionSettings getConnectionSettings() {
 final InternetAddress internetAddress = InternetAddress.anyIPv4;
 const port = 8888;
 const highScoreTable = 'highscores';
-const secret = 'foobar';
+const secret = 'secret';
