@@ -122,6 +122,4 @@ class InputHandler {
       } else { // U
         _moveDir(Direction.up);
       }
-    }
-  }
-}
+    }}}

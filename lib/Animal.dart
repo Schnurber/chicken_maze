@@ -60,7 +60,9 @@ abstract class Animal {
     screenPos.add(xp, yp);
     mapPos.add(xp, yp);
   }
-  /// Abstract
+
+  // Abstract
+  
   void update([Direction direction]);
 
   void sound();
