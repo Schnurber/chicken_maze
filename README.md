@@ -11,3 +11,7 @@ The book is available soon in german language at Amazon:
 [German Book](https://www.amazon.de/dp/3110690640/ref=cm_sw_em_r_mt_dp_U_TF4xEbN4AZSA7)
 
 ![Book](book.jpg)
+
+## Fun stuff
+
+There is a [minimalist version of the game](https://github.com/Schnurber/hack_chicken_maze) for the hack platform.
