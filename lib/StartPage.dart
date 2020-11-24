@@ -1,3 +1,4 @@
+import 'package:flame/widgets/animation_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/Drawer.dart';
 import 'package:chicken_maze/ChickenGame.dart';
@@ -29,8 +30,11 @@ class StartPage extends StatelessWidget {
   Widget _start(BuildContext context) {
     Widget chicken = Flame.util.animationAsWidget(
         Position(MediaQuery.of(context).size.width / 3 * 2,
-                 MediaQuery.of(context).size.width / 3 * 2),
-                 AssetLoader.logoAnimation);
+            MediaQuery.of(context).size.width / 3 * 2),
+        AssetLoader.logoAnimation);
+
+    //Widget chicken = Text("Hallo");
+
     return Center(
       child: Column(children: <Widget>[
         Container(
