@@ -9,7 +9,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flame: ^0.15.2
+  flame: ^0.28.0
+  flame_tiled: ^0.1.0
   http: ^0.12.0+2
   crypto: ^2.0.6
   shared_preferences: ^0.5.2
