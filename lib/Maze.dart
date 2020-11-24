@@ -1,4 +1,3 @@
-import 'package:chicken_maze/Enemy.dart';
 import 'package:flutter/material.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:chicken_maze/stuff/Vect2.dart';
