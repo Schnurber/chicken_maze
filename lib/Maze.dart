@@ -21,7 +21,7 @@ class Maze {
   bool get initialized => _initialized;
 
   Maze(this.game, this.screenTileDimensions) {
-    tiles = new Tiled("map${game.level}.tmx", Size(32, 32));
+    tiles = new Tiled("map${game.level}.tmx", Size(raster, raster));
     _initialized = false;
     tiles.future.then((t) {
       _initialized = true;
