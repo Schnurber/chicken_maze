@@ -33,8 +33,6 @@ class StartPage extends StatelessWidget {
             MediaQuery.of(context).size.width / 3 * 2),
         AssetLoader.logoAnimation);
 
-    //Widget chicken = Text("Hallo");
-
     return Center(
       child: Column(children: <Widget>[
         Container(
