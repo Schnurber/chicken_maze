@@ -32,6 +32,5 @@ double getTextScale(BuildContext context) {
 TextConfig gameTextConf(BuildContext context, double faktor) {
   // double fakt = MediaQuery.of(context).textScaleFactor;
   double fakt = getTextScale(context) / faktor;
-  return TextConfig(textAlign: TextAlign.left, fontSize: 15 * fakt, fontFamily: gameFont,
-      color: Colors.white);
+  return TextConfig(textAlign: TextAlign.left, fontSize: 15 * fakt, fontFamily: gameFont, color: Colors.white);
 }
