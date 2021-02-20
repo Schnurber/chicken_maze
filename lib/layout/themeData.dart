@@ -10,10 +10,10 @@ ThemeData _themeData(BuildContext context) {
     accentColor: Colors.amber[600],
       fontFamily: gameFont,
       textTheme: TextTheme(
-      headline: TextStyle(fontSize: 72.0 * txtScale, 
+      headline5: TextStyle(fontSize: 72.0 * txtScale, 
       fontWeight: FontWeight.bold),
-      title: TextStyle(fontSize: 36.0 * txtScale, ),
-      body1: TextStyle(fontSize: 20.0 * txtScale, ),
+      headline6: TextStyle(fontSize: 36.0 * txtScale, ),
+      bodyText2: TextStyle(fontSize: 20.0 * txtScale, ),
       ),
   );
 }
