@@ -9,7 +9,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flame: ^0.28.0
+  flame: ^0.29.2
   flame_tiled: ^0.1.0
   http: ^0.12.0+2
   crypto: ^2.0.6
@@ -58,3 +58,4 @@ flutter:
       fonts:
         - asset: assets/fonts/UbuntuMono-Bold.ttf
         - asset: assets/fonts/UbuntuMono-Regular.ttf
+# flutter downgrade v1.22.4

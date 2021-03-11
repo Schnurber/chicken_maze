@@ -1,4 +1,4 @@
-import 'package:flame/widgets/animation_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/Drawer.dart';
 import 'package:chicken_maze/ChickenGame.dart';
@@ -6,11 +6,11 @@ import 'package:chicken_maze/GamePage.dart';
 import 'package:chicken_maze/SettingsPage.dart';
 import 'package:chicken_maze/layout/FineButton.dart';
 import 'package:chicken_maze/layout/themeData.dart';
-import 'package:flame/flame.dart';
-import 'package:flame/position.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
+
+
 
 class StartPage extends StatelessWidget {
   final ChickenGame game;
@@ -28,10 +28,10 @@ class StartPage extends StatelessWidget {
   }
 
   Widget _start(BuildContext context) {
-    Widget chicken = Flame.util.animationAsWidget(
-        Position(MediaQuery.of(context).size.width / 3 * 2,
-            MediaQuery.of(context).size.width / 3 * 2),
-        AssetLoader.logoAnimation);
+    Widget chicken =
+        AssetLoader.getChickenWidget(
+          MediaQuery.of(context).size.width / 3 * 2
+        );
 
     return Center(
       child: Column(children: <Widget>[
@@ -41,7 +41,9 @@ class StartPage extends StatelessWidget {
               "Chicken Maze",
               style: TextStyle(fontSize: 38 * getTextScale(context)),
             )),
-        Expanded(child: chicken),
+        Expanded(
+          child: chicken,
+        ),
         Container(
             padding: EdgeInsets.only(top: 50, bottom: 50),
             child: FineButton(

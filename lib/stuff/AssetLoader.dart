@@ -1,10 +1,14 @@
 import 'package:flame/animation.dart' as animation;
 import 'package:flame/images.dart';
+import 'package:flame/flame.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:chicken_maze/stuff/constants.dart';
-import 'dart:ui';
+import 'dart:ui' as ui;
+import 'package:flutter/material.dart';
+import 'package:flame/widgets/animation_widget.dart';
+import 'package:flame/anchor.dart';
 
 class AssetLoader {
   static const chickenpath = "chicken.png";
@@ -38,8 +42,8 @@ class AssetLoader {
     musicCache.disableLog();
   }
 
-  static Future<Image> get pauseImage {
-    Images imgs = Images();
+  static Future<ui.Image> get pauseImage {
+    var imgs = Images();
     return imgs.load(pausepath);
   }
 
@@ -232,5 +236,29 @@ class AssetLoader {
     );
     c.loop = true;
     return c;
+  }
+
+  static Future<animation.Animation> get logoAnimationLoaded async {
+    await Flame.images.load(logopath);
+    return logoAnimation;
+  }
+
+  static Widget getChickenWidget(double chickenWidth) {
+    return FutureBuilder<animation.Animation>(
+        future: AssetLoader.logoAnimationLoaded,
+        builder: (BuildContext context,
+            AsyncSnapshot<animation.Animation> snapshot) {
+          if (!snapshot.hasData) {
+            return Container();
+          } else {
+            return Container(
+              width: chickenWidth,
+              child: AnimationWidget(
+                anchor: Anchor.center,
+                animation: snapshot.data,
+              ),
+            );
+          }
+        });
   }
 }
