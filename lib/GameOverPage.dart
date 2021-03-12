@@ -22,13 +22,13 @@ class GameOverPage extends StatelessWidget {
     return themed(
         context,
         Scaffold(
-            appBar: AppBar(title: Text(Lang.of(context).t("GameOver"))),
+            appBar: AppBar(title: Text(Lang.of(context)!.t("GameOver"))),
             drawer: buildDrawer(context, GameOverPage.route, game.prefs, game),
             body: _gameOver()));
   }
 
   FutureBuilder<bool> _gameOver() {
-    var score = this.game.score ?? 0;
+    var score = this.game.score;
     return FutureBuilder<bool>(
         future: HiScore.setHiScore(score),
         builder: (BuildContext context, AsyncSnapshot<bool> hi) {
@@ -44,7 +44,7 @@ class GameOverPage extends StatelessWidget {
             list.add(Container(
                 padding: pd,
                 child: Text(
-                  Lang.of(context).t("NewHighScore"),
+                  Lang.of(context)!.t("NewHighScore"),
                   style: ts,
                 )));
           }
@@ -53,14 +53,14 @@ class GameOverPage extends StatelessWidget {
             Container(
                 padding: pd,
                 child: Text(
-                  Lang.of(context).t("GameOver"),
+                  Lang.of(context)!.t("GameOver"),
                   style: ts,
                 )),
           );
           list.add(Container(
               padding: pd,
               child: Text(
-                Lang.of(context).t("YourScore") + " $score",
+                Lang.of(context)!.t("YourScore") + " $score",
                 style: ts,
               )));
           list.add(Expanded(child: chicken));
@@ -73,7 +73,7 @@ class GameOverPage extends StatelessWidget {
                     game.paused = false;
                     Navigator.pushReplacementNamed(context, GamePage.route);
                   },
-                  text: Lang.of(context).t("PlayAgain"))));
+                  text: Lang.of(context)!.t("PlayAgain"))));
 
           return Center(
             child: Column(children: list),

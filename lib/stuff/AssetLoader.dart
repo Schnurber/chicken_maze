@@ -19,10 +19,10 @@ class AssetLoader {
   static const crySound = "cry.mp3";
   static const music = "music.mp3";
 
-  static AudioCache player, musicCache;
-  static AudioPlayer musicPlayer;
-  static SharedPreferences prefs;
-  static bool isPlayingEffects;
+  static AudioCache? player, musicCache;
+  static AudioPlayer? musicPlayer;
+  static SharedPreferences? prefs;
+  static bool? isPlayingEffects;
 
   static init(SharedPreferences p) {
     prefs = p;
@@ -34,12 +34,12 @@ class AssetLoader {
   static void loadAudio() {
     assert(player != null);
     assert(musicCache != null);
-    player.clearCache();
-    player.loadAll([chickenSound, pickSound, crySound]);
-    player.disableLog();
-    musicCache.clearCache();
-    musicCache.load(music);
-    musicCache.disableLog();
+    player?.clearCache();
+    player?.loadAll([chickenSound, pickSound, crySound]);
+    player?.disableLog();
+    musicCache?.clearCache();
+    musicCache?.load(music);
+    musicCache?.disableLog();
   }
 
   static Future<ui.Image> get pauseImage {
@@ -107,9 +107,9 @@ class AssetLoader {
 
   static void cluck() async {
     assert(prefs != null);
-    if (prefs.getBool(prefSoundEffects) && !isPlayingEffects) {
+    if (prefs!.getBool(prefSoundEffects) && !isPlayingEffects!) {
       isPlayingEffects = true;
-      player
+      player!
           .play(
             chickenSound,
           )
@@ -119,8 +119,8 @@ class AssetLoader {
 
   static void pick() async {
     assert(prefs != null);
-    if (prefs.getBool(prefSoundEffects) && !isPlayingEffects) {
-      await player
+    if (prefs!.getBool(prefSoundEffects) && !isPlayingEffects!) {
+      await player!
           .play(
             pickSound,
           )
@@ -130,8 +130,8 @@ class AssetLoader {
 
   static void cry() async {
     assert(prefs != null);
-    if (prefs.getBool(prefSoundEffects) && !isPlayingEffects) {
-      await player
+    if (prefs!.getBool(prefSoundEffects) && !isPlayingEffects!) {
+      await player!
           .play(
             crySound,
           )
@@ -142,7 +142,7 @@ class AssetLoader {
   static void initMusic() {
     assert(prefs != null);
     if (musicPlayer == null) {
-      musicCache
+      musicCache!
           .loop(music, volume: 0.5, mode: PlayerMode.LOW_LATENCY)
           .then((p) {
         musicPlayer ??= p;
@@ -152,13 +152,13 @@ class AssetLoader {
 
   static void stopMusic() {
     if (musicPlayer != null) {
-      musicPlayer.pause();
+      musicPlayer!.pause();
     }
   }
 
   static void startMusic() {
-    if (musicPlayer != null && prefs.getBool(prefMusic)) {
-      musicPlayer.resume();
+    if (musicPlayer != null && prefs!.getBool(prefMusic)) {
+      musicPlayer!.resume();
     }
   }
 

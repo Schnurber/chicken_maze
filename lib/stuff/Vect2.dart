@@ -1,18 +1,23 @@
 class Vect2<T extends num> {
-  T x;
-  T y;
-  Vect2(this.x, this.y);
+  num _x;
+  num _y;
+  Vect2(this._x, this._y);
 
   void add(T x, T y) {
-    this.x += x;
-    this.y += y;
+    this._x += x;
+    this._y += y;
   }
 
-  Vect2<T> operator  +(Vect2<T> v) => Vect2<T>(this.x + v.x, this.y + v.y);
- 
+  Vect2<T> operator +(Vect2<T> v) => Vect2<T>(this.x + v.x, this.y + v.y);
+
   @override
-  bool operator  ==(v) => v is Vect2<T> && v.x == this.x && v.y == this.y;
-  
+  bool operator ==(v) => v is Vect2<T> && v.x == this.x && v.y == this.y;
+
   @override
   int get hashCode => x.hashCode ^ y.hashCode;
+
+  T get x => this.x;
+  T get y => this.y;
+  set x(T val) => _x = val;
+  set y(T val) => _y = val;
 }

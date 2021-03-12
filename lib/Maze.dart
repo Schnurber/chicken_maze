@@ -9,15 +9,15 @@ import 'dart:async';
 import 'package:tiled/tiled.dart';
 
 class Maze {
-  Tiled tiles;
-  Vect2<int> screenTileDimensions;
-  Size mapDimensions;
-  Vect2<int> tileDimensions;
-  Position bgrPos;
-  Position bgrTargetPos;
-  Vect2<int> bgrTilePos;
-  ChickenGame game;
-  bool _initialized;
+  late Tiled tiles;
+  late Vect2<int> screenTileDimensions;
+  late Size mapDimensions;
+  late Vect2<int> tileDimensions;
+  late Position bgrPos;
+  late Position bgrTargetPos;
+  late Vect2<int> bgrTilePos;
+  late ChickenGame game;
+  late bool _initialized;
   bool get initialized => _initialized;
 
   Maze(this.game, this.screenTileDimensions) {

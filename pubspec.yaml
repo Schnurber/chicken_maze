@@ -3,7 +3,7 @@ description: A game with flutter and flame.
 version: 1.0.1+3
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.12.0-dev.68.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
@@ -60,3 +60,4 @@ flutter:
         - asset: assets/fonts/UbuntuMono-Bold.ttf
         - asset: assets/fonts/UbuntuMono-Regular.ttf
 # flutter downgrade v1.22.4
+# flutter run --no-sound-null-safety 

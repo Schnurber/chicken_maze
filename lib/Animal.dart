@@ -12,20 +12,21 @@ abstract class Animal {
   animation.Animation animationUp;
   animation.Animation animationDown;
   animation.Animation animationIdle;
-  animation.Animation currentAnimation;
+  late animation.Animation currentAnimation;
 
-  Position pos;
-  Vect2<int> screenPos;
-  Position targetPos;
-  Vect2<int> mapPos;
+  late Position pos;
+  late Vect2<int> screenPos;
+  late Position targetPos;
+  late Vect2<int> mapPos;
   ChickenGame game;
 
-  Animal(this.game, {this.mapPos,
-    this.animationLeft,
-    this.animationRight,
-    this.animationUp,
-    this.animationDown,
-    this.animationIdle}) {
+  Animal(this.game, {
+    required this.mapPos,
+    required this.animationLeft,
+    required this.animationRight,
+    required this.animationUp,
+    required this.animationDown,
+    required this.animationIdle}) {
     initPos(1, 0);
     currentAnimation= animationIdle;
   }

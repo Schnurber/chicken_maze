@@ -23,10 +23,10 @@ class SettingsPage extends StatefulWidget {
 
 class SettingsPageState extends State<SettingsPage> {
 
-  String userName;
-  bool soundEffects;
-  bool music;
-  bool areSwitchesVisible;
+  late String userName;
+  late bool soundEffects;
+  late bool music;
+  late bool areSwitchesVisible;
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class SettingsPageState extends State<SettingsPage> {
 
   Widget build(BuildContext context) {
     return themed(context, Scaffold(
-        appBar: AppBar(title: Text(Lang.of(context).t("Settings"))),
+        appBar: AppBar(title: Text(Lang.of(context)!.t("Settings"))),
         drawer: buildDrawer(context,  SettingsPage.route, this.widget.game.prefs, this.widget.game),
         body: _settings()));
   }
@@ -54,7 +54,7 @@ class SettingsPageState extends State<SettingsPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-            Text(Lang.of(context).t("EnterYourPlayerName")),
+            Text(Lang.of(context)!.t("EnterYourPlayerName")),
             TextField(
               onTap: () => setState(() => areSwitchesVisible = false ),
               onEditingComplete: () {
@@ -78,12 +78,12 @@ class SettingsPageState extends State<SettingsPage> {
                 this.widget.game.prefs.setString(prefUserName, nam);
               },
             ),
-            Text(userName == defaultName ? Lang.of(context).t("YouHaveToEnterANameToPlay") : Lang.of(context).t("YourName") + ": " + userName),
+            Text(userName == defaultName ? Lang.of(context)!.t("YouHaveToEnterANameToPlay") : Lang.of(context)!.t("YourName") + ": " + userName),
             Visibility(visible: areSwitchesVisible, child: 
               Padding (
                   padding: EdgeInsets.only(top: 5.0 * ts, ),
                   child:  Column(children: <Widget>[
-                      Text(Lang.of(context).t("Sound") + " " + (soundEffects ? Lang.of(context).t("On") : Lang.of(context).t("Off")),),
+                      Text(Lang.of(context)!.t("Sound") + " " + (soundEffects ? Lang.of(context)!.t("On") : Lang.of(context)!.t("Off")),),
                       Padding(padding: EdgeInsets.only(top: 5.0 * ts, bottom: 5.0) * ts, child:
                       Transform.scale( scale: ts , child: 
                       Switch(value: soundEffects, 
@@ -100,7 +100,7 @@ class SettingsPageState extends State<SettingsPage> {
               Padding (
                 padding: EdgeInsets.only(top: 5.0 * ts, ),
                 child:  Column(children: <Widget>[
-                  Text(Lang.of(context).t("Music") + " " + (music ? Lang.of(context).t("On") : Lang.of(context).t("Off"))),
+                  Text(Lang.of(context)!.t("Music") + " " + (music ? Lang.of(context)!.t("On") : Lang.of(context)!.t("Off"))),
                   Padding(padding: EdgeInsets.only(top: 5.0 * ts, bottom: 5.0 * ts), child:
                   Transform.scale( scale: ts , child: 
                   Switch(value: music,
@@ -118,7 +118,7 @@ class SettingsPageState extends State<SettingsPage> {
                     this.widget.game.paused = false;
                     Navigator.pushReplacementNamed(context, GamePage.route);
                 },
-                text: Lang.of(context).t("StartGame"),
+                text: Lang.of(context)!.t("StartGame"),
                 enabled: userName != defaultName,
                 ),
             ),

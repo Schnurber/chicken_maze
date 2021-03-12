@@ -18,12 +18,12 @@ import 'package:flame/gestures.dart';
 import 'dart:async';
 
 class ChickenGame extends BaseGame with TapDetector {
-  Size dimensions;
-  Chicken chicken;
-  Maze maze;
-  var pauseImage;
-  Timer _pauseTimer;
-  bool _timerPaused;
+  late Size dimensions;
+  late Chicken chicken;
+  late Maze maze;
+  late var pauseImage;
+  late Timer _pauseTimer;
+  late bool _timerPaused;
 
   static const pauseMillis = 800;
   set paused(bool p) {
@@ -37,21 +37,21 @@ class ChickenGame extends BaseGame with TapDetector {
     _paused = p;
   }
 
-  get paused {
+  bool get paused {
     return _paused;
   }
 
-  bool _paused;
-  Direction direction;
-  InputHandler inputHandler;
-  List<Enemy> enemies;
-  Vect2<int> screenTileDimensions;
-  int score;
-  Vect2<int> spawnPos;
-  int level;
-  BuildContext context;
-  SharedPreferences prefs;
-  double scaleFactor;
+  late bool _paused;
+  late Direction direction;
+  late InputHandler inputHandler;
+  late List<Enemy> enemies;
+  late Vect2<int> screenTileDimensions;
+  late int score;
+  late Vect2<int> spawnPos;
+  late int level;
+  late BuildContext context;
+  late SharedPreferences prefs;
+  late double scaleFactor;
 
   @override
   void lifecycleStateChange(AppLifecycleState state) {
@@ -64,6 +64,7 @@ class ChickenGame extends BaseGame with TapDetector {
         (this.dimensions.width / (raster * scaleFactor)).floor(),
         (this.dimensions.height / (raster * scaleFactor)).floor());
     Ads.init(this);
+    _paused = false;
     this.paused = true;
     this._timerPaused = false;
     AssetLoader.pauseImage.then((img) => pauseImage = img);
@@ -155,13 +156,13 @@ class ChickenGame extends BaseGame with TapDetector {
 
     //Render Text and Button
     TextPainter ltxt = gameTextConf(context, scaleFactor)
-        .toTextPainter("${Lang.of(this.context).t('Level')}:${this.level}");
+        .toTextPainter("${Lang.of(this.context)!.t('Level')}:${this.level}");
     ltxt.paint(
         canvas,
         Offset((dimensions.width / scaleFactor) / 2 - ltxt.width / 2,
             10.0)); // position
     TextPainter txt = gameTextConf(context, scaleFactor).toTextPainter(
-        "${Lang.of(this.context).t('Lives')}:${chicken.lives} ${Lang.of(this.context).t('Power')}:${chicken.canKill} ${Lang.of(this.context).t('Score')}:$score");
+        "${Lang.of(this.context)!.t('Lives')}:${chicken.lives} ${Lang.of(this.context)!.t('Power')}:${chicken.canKill} ${Lang.of(this.context)!.t('Score')}:$score");
     txt.paint(
         canvas,
         Offset((dimensions.width / scaleFactor) / 2 - txt.width / 2,
@@ -174,11 +175,11 @@ class ChickenGame extends BaseGame with TapDetector {
 
   void showPause(Canvas canvas) {
     TextPainter ltxt = gameTextConf(context, scaleFactor)
-        .toTextPainter("${Lang.of(this.context).t('Level')}: ${this.level}");
+        .toTextPainter("${Lang.of(this.context)!.t('Level')}: ${this.level}");
     TextPainter ctxt = gameTextConf(context, scaleFactor).toTextPainter(
-        "${Lang.of(this.context).t('Lives')}: ${this.chicken.lives}");
+        "${Lang.of(this.context)!.t('Lives')}: ${this.chicken.lives}");
     TextPainter txt = gameTextConf(context, scaleFactor)
-        .toTextPainter("${Lang.of(this.context).t('BitteWarten')}");
+        .toTextPainter("${Lang.of(this.context)!.t('BitteWarten')}");
     ltxt.paint(
         canvas,
         Offset(

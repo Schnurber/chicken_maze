@@ -16,8 +16,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Size _dimensions;
-SharedPreferences prefs;
+late Size _dimensions;
+late SharedPreferences prefs;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

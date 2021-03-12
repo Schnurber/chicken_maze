@@ -19,12 +19,12 @@ class LeaderBoardPage extends StatefulWidget {
 
 class LeaderBoardPageState extends State<LeaderBoardPage> {
 
-  List<List<String>> scores;
+  late List<List<String>> scores;
 
   Widget build(BuildContext context) {
      this.widget.game.paused = true;
     return themed(context, Scaffold(
-        appBar: AppBar(title: Text(Lang.of(context).t("HighScore"))),
+        appBar: AppBar(title: Text(Lang.of(context)!.t("HighScore"))),
         drawer: buildDrawer(context, LeaderBoardPage.route,  this.widget.game.prefs,  this.widget.game),
         body: _leaderBoard()));
   }
@@ -34,19 +34,19 @@ class LeaderBoardPageState extends State<LeaderBoardPage> {
     return FutureBuilder<List<List<String>>>(
       future: LeaderBoard.getHiScore(),
       builder: (BuildContext context, AsyncSnapshot<List<List<String>>> snapshot) {
-          scores = snapshot.data;
+          scores = snapshot.data!;
           if (scores == null || scores.length == 0) {
             return Container(
-              child: Center( child: Text(Lang.of(context).t("WaitForLoading"), ), ),
+              child: Center( child: Text(Lang.of(context)!.t("WaitForLoading"), ), ),
             );
           }
           List<String> rankList = <String>[];
           List<String> scoreList = <String>[];
           List<String> nameList = <String>[];
           int i = 1;
-          rankList.add(Lang.of(context).t("Rank"));
-          scoreList.add(Lang.of(context).t("Score"));
-          nameList.add(Lang.of(context).t("Name"));
+          rankList.add(Lang.of(context)!.t("Rank"));
+          scoreList.add(Lang.of(context)!.t("Score"));
+          nameList.add(Lang.of(context)!.t("Name"));
           scores.forEach((r) {
             rankList.add("$i");
             i++;

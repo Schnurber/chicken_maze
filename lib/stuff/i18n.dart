@@ -23,7 +23,7 @@ class Lang {
 
   final Locale locale;
 
-  static Lang of(BuildContext context) {
+  static Lang? of(BuildContext context) {
     return Localizations.of<Lang>(context, Lang);
   }
 
@@ -183,6 +183,6 @@ muros y destruir enemigos.
   };
 
   String t(String what) {
-    return _localizedValues[locale.languageCode][what];
+    return _localizedValues[locale.languageCode]![what]!;
   }
 }

@@ -22,7 +22,7 @@ class StartPage extends StatelessWidget {
     return themed(
         context,
         Scaffold(
-            appBar: AppBar(title: Text(Lang.of(context).t("Start"))),
+            appBar: AppBar(title: Text(Lang.of(context)!.t("Start"))),
             drawer: buildDrawer(context, route, game.prefs, game),
             body: _start(context)));
   }
@@ -55,7 +55,7 @@ class StartPage extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, GamePage.route);
                   }
                 },
-                text: Lang.of(context).t("StartGame"))),
+                text: Lang.of(context)!.t("StartGame"))),
       ]),
     );
   }
