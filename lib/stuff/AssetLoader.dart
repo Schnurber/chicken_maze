@@ -27,8 +27,8 @@ class AssetLoader {
   static init(SharedPreferences p) {
     prefs = p;
     isPlayingEffects ??= false;
-    player ??= AudioCache(prefix: "audio/");
-    musicCache ??= AudioCache(prefix: "audio/");
+    player ??= AudioCache(prefix: "assets/audio/");
+    musicCache ??= AudioCache(prefix: "assets/audio/");
   }
 
   static void loadAudio() {

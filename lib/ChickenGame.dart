@@ -10,7 +10,6 @@ import 'package:chicken_maze/Enemy.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/GameOverPage.dart';
 import 'package:chicken_maze/stuff/ads.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:chicken_maze/layout/themeData.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
@@ -95,16 +94,10 @@ class ChickenGame extends BaseGame with TapDetector {
   void restartLevel() {
     paused = true;
     direction = Direction.none;
-    InterstitialAd ad = Ads.ad;
     _timerPaused = true;
     _pauseTimer = Timer(Duration(milliseconds: pauseMillis), () {
       _timerPaused = false;
-      ad
-        ..load()
-        ..show(
-          anchorType: AnchorType.bottom,
-          anchorOffset: 0.0,
-        );
+      Ads.ad();
     });
   }
 
