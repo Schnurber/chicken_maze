@@ -6,7 +6,7 @@ class Ads {
   static ChickenGame game;
 
   static init(ChickenGame g) {
-    Admob.initialize();
+    Admob.initialize(testDeviceIds: [testDevice]);
     game = g;
   }
 
