@@ -26,7 +26,7 @@ class Maze {
     tiles.future.then((t) {
       _initialized = true;
       tileDimensions =
-          Vect2<int>(tiles.map.layers[0].width, tiles.map.layers[0].height);
+          Vect2<int>(tiles.map.layers[0].width!, tiles.map.layers[0].height!);
       print("Maze: ${tileDimensions.x}, ${tileDimensions.y}");
       mapDimensions =
           Size((tileDimensions.x) * raster, (tileDimensions.y) * raster);
@@ -70,13 +70,13 @@ class Maze {
     if (x < 0 || x >= tileDimensions.x) return true;
     if (y < 0 || y >= tileDimensions.y) return true;
     // ID of Tile ... Collision
-    var id = getTileFromLayer(0, x, y).tileId;
+    int id = getTileFromLayer(0, x, y).tileId!;
     return id > 3 &&
         !passageOpened.contains(id); //A Hole form chicken-killing-power
   }
 
   Tile getTileFromLayer(int num, int x, int y) {
-    return tiles.map.layers[num].tiles[y][x];
+    return tiles.map.layers[num].tiles![y][x];
   }
 
   bool obstacle(Vect2<int> o) {
@@ -118,11 +118,11 @@ class Maze {
     List<Vect2<int>> list = <Vect2<int>>[];
 
     var all = <Tile>[];
-    tiles.map.layers[2].tiles.forEach((col) => col.forEach((e) => all.add(e)));
-    var enemies = all.where((t) => t.tileId != null && t.tileId >= 0);
+    tiles.map.layers[2].tiles!.forEach((col) => col.forEach((e) => all.add(e)));
+    var enemies = all.where((t) => t.tileId != null && t.tileId! >= 0);
 
-    enemies.forEach((t) =>
-        list.add(Vect2((t.px / raster).floor(), (t.py / raster).floor())));
+    enemies.forEach((Tile t) =>
+        list.add(Vect2((t.px! / raster).floor(), (t.py! / raster).floor())));
 
     return list;
   }

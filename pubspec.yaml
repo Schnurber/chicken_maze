@@ -11,14 +11,13 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flame: ^1.0.0-rc8
-  flame_audio: ^0.1.0-rc4
-  flame_tiled: ^0.1.0
-    #path: '/Users/dietermeiller/git/flame_tiled'
+  flame_tiled: #^0.1.0
+    path: '/Users/dietermeiller/git/flame_tiled'
   http: ^0.12.0+2
   crypto: ^3.0.0
   shared_preferences: ^0.5.12+4
-  dependencies:
   admob_flutter: ^1.0.1
+  flame_audio: ^0.1.0-rc4
   cupertino_icons: ^0.1.2
   
 dev_dependencies:

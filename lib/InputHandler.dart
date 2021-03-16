@@ -21,7 +21,7 @@ class InputHandler {
         if (chicken.canKill > 0 && tile.tileId == passageClosed[0]) {
           chicken.canKill--;
           tile.tileId = passageOpened[0];
-          tile.gid = tile.tileId + 1;
+          tile.gid = tile.tileId! + 1;
         }
         chicken.sound();
         return;
@@ -43,7 +43,7 @@ class InputHandler {
         if (chicken.canKill > 0 && tile.tileId == passageClosed[0]) {
           chicken.canKill--;
           tile.tileId = passageOpened[0];
-          tile.gid = tile.tileId + 1; //id!= gid
+          tile.gid = tile.tileId! + 1; //id!= gid
         }
         chicken.sound();
         return;
@@ -66,7 +66,7 @@ class InputHandler {
         if (chicken.canKill > 0 && tile.tileId == passageClosed[1]) {
           chicken.canKill--;
           tile.tileId = passageOpened[1];
-          tile.gid = tile.tileId + 1;
+          tile.gid = tile.tileId! + 1;
         }
         chicken.sound();
         return;
@@ -89,7 +89,7 @@ class InputHandler {
         if (chicken.canKill > 0 && tile.tileId == passageClosed[1]) {
           chicken.canKill--;
           tile.tileId = passageOpened[1];
-          tile.gid = tile.tileId + 1;
+          tile.gid = tile.tileId! + 1;
         }
         chicken.sound();
         return;
