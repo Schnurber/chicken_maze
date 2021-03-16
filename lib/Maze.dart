@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:chicken_maze/stuff/Vect2.dart';
-import 'package:flame/position.dart';
+import 'package:flame/components.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/ChickenGame.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
@@ -13,8 +13,8 @@ class Maze {
   late Vect2<int> screenTileDimensions;
   late Size mapDimensions;
   late Vect2<int> tileDimensions;
-  late Position bgrPos;
-  late Position bgrTargetPos;
+  late Vector2 bgrPos;
+  late Vector2 bgrTargetPos;
   late Vect2<int> bgrTilePos;
   late ChickenGame game;
   late bool _initialized;
@@ -33,8 +33,8 @@ class Maze {
       tiles.map.layers[2].visible = false;
       tiles.generate();
     });
-    bgrPos = Position(0, 0);
-    bgrTargetPos = Position(0, 0);
+    bgrPos = Vector2(0, 0);
+    bgrTargetPos = Vector2(0, 0);
     bgrTilePos = Vect2<int>(0, 0);
   }
 

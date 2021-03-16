@@ -8,15 +8,11 @@ import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/stuff/HiScore.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
 
-
-
 class GameOverPage extends StatelessWidget {
-
   static final String route = '/game_over';
 
   final ChickenGame game;
   GameOverPage(this.game);
-
 
   Widget build(BuildContext context) {
     return themed(
@@ -33,8 +29,9 @@ class GameOverPage extends StatelessWidget {
         future: HiScore.setHiScore(score),
         builder: (BuildContext context, AsyncSnapshot<bool> hi) {
           var sc = getTextScale(context);
-          Widget chicken = AssetLoader.getChickenWidget(170 * sc);
-         
+          var w = 170 * sc;
+          Widget chicken = AssetLoader.getChickenWidget(w, w);
+
           TextStyle ts = TextStyle(fontSize: 32 * sc);
           var pd = EdgeInsets.only(top: 30, bottom: 10);
           var list = <Widget>[];

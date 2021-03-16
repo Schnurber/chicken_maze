@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/Drawer.dart';
 import 'package:chicken_maze/ChickenGame.dart';
@@ -9,8 +8,6 @@ import 'package:chicken_maze/layout/themeData.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
-
-
 
 class StartPage extends StatelessWidget {
   final ChickenGame game;
@@ -28,10 +25,8 @@ class StartPage extends StatelessWidget {
   }
 
   Widget _start(BuildContext context) {
-    Widget chicken =
-        AssetLoader.getChickenWidget(
-          MediaQuery.of(context).size.width / 3 * 2
-        );
+    var w = MediaQuery.of(context).size.width / 3 * 2;
+    Widget chicken = AssetLoader.getChickenWidget(w, w);
 
     return Center(
       child: Column(children: <Widget>[

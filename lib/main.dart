@@ -21,25 +21,23 @@ late SharedPreferences prefs;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Flame.util.setOrientation(DeviceOrientation.portraitUp);
-  Flame.util.initialDimensions().then((d) {
-    _dimensions = Size(d.width, d.height); //Copy
-    SharedPreferences.getInstance().then((p) {
-      prefs = p;
-      if (!prefs.containsKey(prefHiScore)) {
-        prefs.setInt(prefHiScore, 0);
-      }
-      if (!prefs.containsKey(prefUserName)) {
-        prefs.setString(prefUserName, defaultName);
-      }
-      if (!prefs.containsKey(prefSoundEffects)) {
-        prefs.setBool(prefSoundEffects, true);
-      }
-      if (!prefs.containsKey(prefMusic)) {
-        prefs.setBool(prefMusic, true);
-      }
-      runApp(ChickenApp());
-    });
+  Flame.device.setOrientation(DeviceOrientation.portraitUp);
+
+  SharedPreferences.getInstance().then((p) {
+    prefs = p;
+    if (!prefs.containsKey(prefHiScore)) {
+      prefs.setInt(prefHiScore, 0);
+    }
+    if (!prefs.containsKey(prefUserName)) {
+      prefs.setString(prefUserName, defaultName);
+    }
+    if (!prefs.containsKey(prefSoundEffects)) {
+      prefs.setBool(prefSoundEffects, true);
+    }
+    if (!prefs.containsKey(prefMusic)) {
+      prefs.setBool(prefMusic, true);
+    }
+    runApp(ChickenApp());
   });
 }
 
@@ -47,6 +45,7 @@ class ChickenApp extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetLoader.init(prefs);
     AssetLoader.loadAudio();
+    _dimensions = MediaQuery.of(context).size;
     final _chickenGame = ChickenGame(_dimensions, prefs);
     final gamePage = GamePage(_chickenGame, _dimensions);
     final startPage = StartPage(gamePage.chickenGame);

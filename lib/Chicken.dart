@@ -3,7 +3,7 @@ import 'package:chicken_maze/ChickenGame.dart';
 import 'package:chicken_maze/Animal.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/stuff/Vect2.dart';
-import 'package:flame/position.dart';
+import 'package:flame/components.dart';
 import 'dart:async';
 
 class Chicken extends Animal {
@@ -28,13 +28,13 @@ class Chicken extends Animal {
     int px = (game.maze.screenTileDimensions.x / 2).floor();
     int py = (game.maze.screenTileDimensions.y / 2).floor();
     screenPos = Vect2<int>(px, py);
-    targetPos = Position(raster * px, raster * py);
-    pos = Position(targetPos.x, targetPos.y);
+    targetPos = Vector2(raster * px, raster * py);
+    pos = Vector2(targetPos.x, targetPos.y);
     game.direction = Direction.none;
     game.maze.bgrTilePos = Vect2<int>(-x + px, -y + py);
-    game.maze.bgrPos = Position(
+    game.maze.bgrPos = Vector2(
         raster * game.maze.bgrTilePos.x, raster * game.maze.bgrTilePos.y);
-    game.maze.bgrTargetPos = Position(game.maze.bgrPos.x, game.maze.bgrPos.y);
+    game.maze.bgrTargetPos = Vector2(game.maze.bgrPos.x, game.maze.bgrPos.y);
   }
 
   @override
@@ -87,8 +87,8 @@ class Chicken extends Animal {
   }
 
   void idle() {
-    timer?.cancel();
-    timer = Timer(Duration(milliseconds: 2000), () {
+    timer?.stop();
+    timer = Timer(2000, callback: () {
       if (game.direction == Direction.none) {
         currentAnimation = animationIdle;
       }

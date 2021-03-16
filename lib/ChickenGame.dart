@@ -67,7 +67,7 @@ class ChickenGame extends BaseGame with TapDetector {
     _paused = false;
     this.paused = true;
     this._timerPaused = false;
-    AssetLoader.pauseImage.then((img) => pauseImage = img);
+    AssetLoader.loadAll().then((value) => pauseImage = AssetLoader.pauseImage);
     startGame();
     initLevel();
   }
@@ -221,7 +221,6 @@ class ChickenGame extends BaseGame with TapDetector {
   @override
   void update(double t) {
     super.update(t);
-    assert(context != null);
     if (!paused && chicken.lives <= 0) {
       paused = true;
       this._timerPaused = true;

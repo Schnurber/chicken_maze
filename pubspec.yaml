@@ -1,28 +1,31 @@
 name: chicken_maze
 description: A game with flutter and flame.
 version: 1.0.1+3
+publish_to: none
 
 environment:
-  sdk: ">=2.12.0-dev.68.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flame: ^0.29.3
+  flame: ^1.0.0-rc8
+  flame_audio: ^0.1.0-rc4
   flame_tiled: ^0.1.0
+    #path: '/Users/dietermeiller/git/flame_tiled'
   http: ^0.12.0+2
-  crypto: ^2.0.6
-  shared_preferences: ^0.5.2
+  crypto: ^3.0.0
+  shared_preferences: ^0.5.12+4
   dependencies:
   admob_flutter: ^1.0.1
   cupertino_icons: ^0.1.2
   
 dev_dependencies:
-  mysql1: ^0.17.0+1
+  mysql1: ^0.17.1
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.7.3"
+  flutter_launcher_icons: ^0.9.0
 
 flutter_icons:
   android: "launcher_icon" 

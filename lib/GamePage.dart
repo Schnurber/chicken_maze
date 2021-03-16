@@ -12,6 +12,6 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     chickenGame.context = context;
 
-    return chickenGame.widget;
+    return chickenGame.context.widget;
   }
 }

@@ -31,9 +31,9 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    userName = this.widget.game.prefs.getString(prefUserName);
-    soundEffects = this.widget.game.prefs.getBool(prefSoundEffects);
-    music = this.widget.game.prefs.getBool(prefMusic);
+    userName = this.widget.game.prefs.getString(prefUserName)!;
+    soundEffects = this.widget.game.prefs.getBool(prefSoundEffects)!;
+    music = this.widget.game.prefs.getBool(prefMusic)!;
     areSwitchesVisible = true;
   }
 
