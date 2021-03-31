@@ -35,7 +35,6 @@ abstract class Animal {
     targetPos = Vect2<double>(raster * mapPos.x, raster * mapPos.y);
     screenPos = Vect2<int>(mapPos.x, mapPos.y);
     pos = Vect2<double>(targetPos.x, targetPos.y);
-    print("init");
   }
 
   void render(Canvas canvas) {

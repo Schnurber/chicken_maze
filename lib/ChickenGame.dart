@@ -24,7 +24,7 @@ class ChickenGame extends BaseGame with TapDetector {
   late var pauseImage;
   late Timer _pauseTimer;
   late bool _timerPaused;
-  bool _initialized;
+  bool _loaded;
 
   static const pauseMillis = 800;
   set paused(bool p) {
@@ -59,32 +59,35 @@ class ChickenGame extends BaseGame with TapDetector {
     paused = state.index != AppLifecycleState.resumed.index;
   }
 
-  ChickenGame(this.prefs) : _initialized = false;
-
-  void initialize(Size dimensions, BuildContext context) {
-    if (_initialized) return;
-    _dimensions = dimensions;
-    this.context = context;
+  ChickenGame(this.prefs) : _loaded = false {
     Ads.init(this);
+    AssetLoader.initMusic();
     this.paused = true;
     this._timerPaused = false;
     AssetLoader.loadAll().then((value) {
       pauseImage = AssetLoader.pauseImage;
-      scaleFactor = this._dimensions.width / 320.0 * 1.5;
-      screenTileDimensions = Vect2<int>(
-          (this._dimensions.width / (raster * scaleFactor)).floor(),
-          (this._dimensions.height / (raster * scaleFactor)).floor());
-      startGame();
-      initLevel();
-      AssetLoader.initMusic();
-      _initialized = true;
+      level = 1;
+      score = 0;
+      chicken = Chicken(this);
+      _loaded = true;
     });
   }
 
+  void initialize(Size dimensions, BuildContext context) {
+    _dimensions = dimensions;
+    this.context = context;
+    scaleFactor = this._dimensions.width / 320.0 * 1.5;
+    screenTileDimensions = Vect2<int>(
+        (this._dimensions.width / (raster * scaleFactor)).floor(),
+        (this._dimensions.height / (raster * scaleFactor)).floor());
+    initLevel();
+    direction = Direction.none;
+    paused = false;
+  }
+
   void startGame() {
-    level = 1;
-    score = 0;
-    chicken = Chicken(this);
+    chicken.lives = 3;
+    chicken.canKill = 0;
     direction = Direction.none;
     paused = false;
   }
@@ -114,7 +117,7 @@ class ChickenGame extends BaseGame with TapDetector {
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    if (!_initialized) return;
+    if (!_loaded) return;
     canvas.scale(scaleFactor);
     if (paused) {
       showPause(canvas);
@@ -127,13 +130,13 @@ class ChickenGame extends BaseGame with TapDetector {
     canvas.drawPaint(col);
     canvas.translate(maze.bgrPos.x, maze.bgrPos.y);
     maze.render(canvas);
-    enemies.forEach((e) {
+    for (var e in enemies) {
       if (!e.isKilled && e.mapPos == chicken.mapPos) {
         if (chicken.canKill > 0) {
           //Kill enemy!
           e.isKilled = true;
           chicken.canKill--;
-          return;
+          continue;
         }
         // Hit by enemy
         AssetLoader.cry();
@@ -145,10 +148,12 @@ class ChickenGame extends BaseGame with TapDetector {
           enemies.forEach((e) => e.initPos(e.initialPos.x, e.initialPos.y));
           restartLevel();
         }
+        break;
       }
       e.update();
       e.render(canvas);
-    });
+    }
+    ;
     //Check if next level?
     if (maze.tileDimensions.x - 2 == chicken.mapPos.x &&
         maze.tileDimensions.y - 1 == chicken.mapPos.y) {
@@ -176,10 +181,8 @@ class ChickenGame extends BaseGame with TapDetector {
         canvas,
         Offset((_dimensions.width / scaleFactor) / 2 - txt.width / 2,
             10.0 + ltxt.height * 1.5)); // position
-    if (pauseImage != null) {
-      canvas.drawImage(pauseImage,
-          Offset(0.0, this._dimensions.height / scaleFactor - raster), Paint());
-    }
+    canvas.drawImage(pauseImage,
+        Offset(0.0, this._dimensions.height / scaleFactor - raster), Paint());
   }
 
   void showPause(Canvas canvas) {
@@ -213,7 +216,7 @@ class ChickenGame extends BaseGame with TapDetector {
 
   @override
   void onTapDown(TapDownDetails evt) {
-    if (!_initialized) return;
+    if (!_loaded) return;
     var xp = evt.globalPosition.dx;
     var yp = evt.globalPosition.dy;
     if (paused || !maze.initialized) return;
@@ -231,7 +234,7 @@ class ChickenGame extends BaseGame with TapDetector {
   @override
   void update(double t) {
     super.update(t);
-    if (!_initialized) return;
+    if (!_loaded) return;
     if (!paused && chicken.lives <= 0) {
       paused = true;
       this._timerPaused = true;

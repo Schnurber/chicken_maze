@@ -20,13 +20,10 @@ class Ads {
               event == AdmobAdEvent.leftApplication ||
               event == AdmobAdEvent.opened) {
             game?.paused = true;
-          }
-          if (event == AdmobAdEvent.loaded) {
+          } else  if (event == AdmobAdEvent.loaded) {
             game?.paused = true;
             myInterstitial?.show();
-          }  if (event == AdmobAdEvent.closed ||
-                event == AdmobAdEvent.completed || 
-                event == AdmobAdEvent.failedToLoad) {
+          } else {
             game?.paused = false;
           }
         });

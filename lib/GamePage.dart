@@ -13,6 +13,7 @@ class GamePage extends StatelessWidget {
   Widget build(BuildContext context) {
     dimensions = MediaQuery.of(context).size;
     chickenGame.initialize(dimensions, context);
+    print("---------Initialize-------");
     return GameWidget(game: chickenGame);
   }
 }
