@@ -26,7 +26,7 @@ dependencies:
 dev_dependencies:
   mysql1:
     git:
-      url: https://github.com/rxlabz/mysql1_dart.git
+      url: https://github.com/Schnurber/mysql1_dart.git
       ref: feat/nnbd
   flutter_test:
     sdk: flutter
