@@ -28,8 +28,8 @@ class Chicken extends Animal {
     int px = (game.maze.screenTileDimensions.x / 2).floor();
     int py = (game.maze.screenTileDimensions.y / 2).floor();
     screenPos = Vect2<int>(px, py);
-    targetPos = Vector2(raster * px, raster * py);
-    pos = Vector2(targetPos.x, targetPos.y);
+    targetPos = Vect2<double>(raster * px, raster * py);
+    pos = Vect2<double>(targetPos.x, targetPos.y);
     game.direction = Direction.none;
     game.maze.bgrTilePos = Vect2<int>(-x + px, -y + py);
     game.maze.bgrPos = Vector2(

@@ -16,13 +16,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-late Size _dimensions;
 late SharedPreferences prefs;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Flame.device.setOrientation(DeviceOrientation.portraitUp);
-
+  Flame.device.fullScreen();
   SharedPreferences.getInstance().then((p) {
     prefs = p;
     if (!prefs.containsKey(prefHiScore)) {
@@ -37,23 +36,23 @@ void main() {
     if (!prefs.containsKey(prefMusic)) {
       prefs.setBool(prefMusic, true);
     }
+    AssetLoader.init(prefs);
+    AssetLoader.loadAudio();
     runApp(ChickenApp());
   });
 }
 
+final _chickenGame = ChickenGame(prefs);
+final gamePage = GamePage(_chickenGame);
+final startPage = StartPage(gamePage.chickenGame);
+final aboutPage = AboutPage(gamePage.chickenGame);
+final settingsPage = SettingsPage(gamePage.chickenGame);
+final leaderBoardPage = LeaderBoardPage(gamePage.chickenGame);
+final gameOverPage = GameOverPage(gamePage.chickenGame);
+final pausePage = PausePage(gamePage.chickenGame);
+
 class ChickenApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    AssetLoader.init(prefs);
-    AssetLoader.loadAudio();
-    _dimensions = MediaQuery.of(context).size;
-    final _chickenGame = ChickenGame(_dimensions, prefs);
-    final gamePage = GamePage(_chickenGame, _dimensions);
-    final startPage = StartPage(gamePage.chickenGame);
-    final aboutPage = AboutPage(gamePage.chickenGame);
-    final settingsPage = SettingsPage(gamePage.chickenGame);
-    final leaderBoardPage = LeaderBoardPage(gamePage.chickenGame);
-    final gameOverPage = GameOverPage(gamePage.chickenGame);
-    final pausePage = PausePage(gamePage.chickenGame);
 
     return MaterialApp(
       localizationsDelegates: [
@@ -72,8 +71,8 @@ class ChickenApp extends StatelessWidget {
       checkerboardRasterCacheImages: false,
       debugShowMaterialGrid: false,
       title: 'Chicken Maze',
-      home: startPage,
-      routes: <String, WidgetBuilder>{
+      home: gamePage,
+      routes: <String, WidgetBuilder> {
         SettingsPage.route: (context) => settingsPage,
         AboutPage.route: (context) => aboutPage,
         GamePage.route: (context) => gamePage,

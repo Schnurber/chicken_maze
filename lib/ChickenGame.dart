@@ -18,12 +18,13 @@ import 'package:flame/gestures.dart';
 import 'dart:async';
 
 class ChickenGame extends BaseGame with TapDetector {
-  late Size dimensions;
+  late Size _dimensions;
   late Chicken chicken;
   late Maze maze;
   late var pauseImage;
   late Timer _pauseTimer;
   late bool _timerPaused;
+  bool _initialized;
 
   static const pauseMillis = 800;
   set paused(bool p) {
@@ -41,7 +42,7 @@ class ChickenGame extends BaseGame with TapDetector {
     return _paused;
   }
 
-  late bool _paused;
+  bool _paused = true;
   late Direction direction;
   late InputHandler inputHandler;
   late List<Enemy> enemies;
@@ -58,18 +59,25 @@ class ChickenGame extends BaseGame with TapDetector {
     paused = state.index != AppLifecycleState.resumed.index;
   }
 
-  ChickenGame(this.dimensions, this.prefs) {
-    scaleFactor = this.dimensions.width / 320.0 * 1.5;
-    screenTileDimensions = Vect2<int>(
-        (this.dimensions.width / (raster * scaleFactor)).floor(),
-        (this.dimensions.height / (raster * scaleFactor)).floor());
+  ChickenGame(this.prefs) : _initialized = false;
+
+  void initialize(Size dimensions, BuildContext context) {
+    if (_initialized) return;
+    _dimensions = dimensions;
+    this.context = context;
     Ads.init(this);
-    _paused = false;
     this.paused = true;
     this._timerPaused = false;
-    AssetLoader.loadAll().then((value) => pauseImage = AssetLoader.pauseImage);
-    startGame();
-    initLevel();
+    AssetLoader.loadAll().then((value) {
+      pauseImage = AssetLoader.pauseImage;
+      scaleFactor = this._dimensions.width / 320.0 * 1.5;
+      screenTileDimensions = Vect2<int>(
+          (this._dimensions.width / (raster * scaleFactor)).floor(),
+          (this._dimensions.height / (raster * scaleFactor)).floor());
+      startGame();
+      initLevel();
+      _initialized = true;
+    });
   }
 
   void startGame() {
@@ -93,19 +101,22 @@ class ChickenGame extends BaseGame with TapDetector {
   }
 
   void restartLevel() {
-    paused = true;
+    //paused = true;
     direction = Direction.none;
+    /*
     _timerPaused = true;
     _pauseTimer = Timer(Duration(milliseconds: pauseMillis), () {
       _timerPaused = false;
       Ads.ad();
     });
+    */
   }
 
   /// Game loop
   @override
   void render(Canvas canvas) {
     super.render(canvas);
+    if (!_initialized) return;
     canvas.scale(scaleFactor);
     if (paused) {
       showPause(canvas);
@@ -159,17 +170,17 @@ class ChickenGame extends BaseGame with TapDetector {
         .toTextPainter("${Lang.of(this.context)!.t('Level')}:${this.level}");
     ltxt.paint(
         canvas,
-        Offset((dimensions.width / scaleFactor) / 2 - ltxt.width / 2,
+        Offset((_dimensions.width / scaleFactor) / 2 - ltxt.width / 2,
             10.0)); // position
     TextPainter txt = gameTextConf(context, scaleFactor).toTextPainter(
         "${Lang.of(this.context)!.t('Lives')}:${chicken.lives} ${Lang.of(this.context)!.t('Power')}:${chicken.canKill} ${Lang.of(this.context)!.t('Score')}:$score");
     txt.paint(
         canvas,
-        Offset((dimensions.width / scaleFactor) / 2 - txt.width / 2,
+        Offset((_dimensions.width / scaleFactor) / 2 - txt.width / 2,
             10.0 + ltxt.height * 1.5)); // position
     if (pauseImage != null) {
       canvas.drawImage(pauseImage,
-          Offset(0.0, this.dimensions.height / scaleFactor - raster), Paint());
+          Offset(0.0, this._dimensions.height / scaleFactor - raster), Paint());
     }
   }
 
@@ -183,32 +194,33 @@ class ChickenGame extends BaseGame with TapDetector {
     ltxt.paint(
         canvas,
         Offset(
-            (dimensions.width / scaleFactor) / 2 - ltxt.width / 2,
-            (dimensions.height / scaleFactor) / 2 -
+            (_dimensions.width / scaleFactor) / 2 - ltxt.width / 2,
+            (_dimensions.height / scaleFactor) / 2 -
                 ltxt.height / 2 -
                 ctxt.height * 2)); // position
     ctxt.paint(
         canvas,
         Offset(
-            (dimensions.width / scaleFactor) / 2 - ctxt.width / 2,
-            (dimensions.height / scaleFactor) / 2 -
+            (_dimensions.width / scaleFactor) / 2 - ctxt.width / 2,
+            (_dimensions.height / scaleFactor) / 2 -
                 ctxt.height / 2)); // position
     txt.paint(
         canvas,
         Offset(
-            (dimensions.width / scaleFactor) / 2 - txt.width / 2,
-            (dimensions.height / scaleFactor) / 2 -
+            (_dimensions.width / scaleFactor) / 2 - txt.width / 2,
+            (_dimensions.height / scaleFactor) / 2 -
                 txt.height / 2 +
                 ctxt.height * 2)); // position
   }
 
   @override
   void onTapDown(TapDownDetails evt) {
+    if (!_initialized) return;
     var xp = evt.globalPosition.dx;
     var yp = evt.globalPosition.dy;
     if (paused || !maze.initialized) return;
     if (xp < raster * scaleFactor &&
-        yp > this.dimensions.height - raster * scaleFactor) {
+        yp > this._dimensions.height - raster * scaleFactor) {
       // Pause
       this.paused = true;
       Navigator.pushReplacementNamed(context, PausePage.route);
@@ -221,6 +233,8 @@ class ChickenGame extends BaseGame with TapDetector {
   @override
   void update(double t) {
     super.update(t);
+    if (!_initialized) return;
+    /*
     if (!paused && chicken.lives <= 0) {
       paused = true;
       this._timerPaused = true;
@@ -229,5 +243,6 @@ class ChickenGame extends BaseGame with TapDetector {
         Navigator.of(context).pushReplacementNamed(GameOverPage.route);
       });
     }
+    */
   }
 }

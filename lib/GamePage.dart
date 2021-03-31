@@ -1,17 +1,18 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chicken_maze/ChickenGame.dart';
 
 class GamePage extends StatelessWidget {
-  final Size dimensions;
+  static late Size dimensions;
   static const String route = '/game';
   final ChickenGame chickenGame;
 
-  GamePage(this.chickenGame, this.dimensions);
+  GamePage(this.chickenGame);
 
   Widget build(BuildContext context) {
-    chickenGame.context = context;
-
-    return chickenGame.context.widget;
+    dimensions = MediaQuery.of(context).size;
+    chickenGame.initialize(dimensions, context);
+    return GameWidget(game: chickenGame);
   }
 }

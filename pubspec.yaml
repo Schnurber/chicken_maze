@@ -13,15 +13,17 @@ dependencies:
   flame: ^1.0.0-rc8
   flame_tiled: #^0.1.0
     path: '/Users/dietermeiller/git/flame_tiled'
-  http: ^0.12.0+2
-  crypto: ^3.0.0
-  shared_preferences: ^0.5.12+4
-  admob_flutter: ^1.0.1
-  flame_audio: ^0.1.0-rc4
+  http: ^0.13.1
+  crypto: any
+  shared_preferences: ^2.0.5
+  admob_flutter: ^2.0.0-nullsafety.0
+  #flame_audio: ^0.1.0-rc4
+  flame_audio: #^0.1.0
+    path: '/Users/dietermeiller/git/flame_audio'
   cupertino_icons: ^0.1.2
   
 dev_dependencies:
-  mysql1: ^0.17.1
+  #mysql1: any
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0

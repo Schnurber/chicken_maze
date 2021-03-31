@@ -19,10 +19,10 @@ class AssetLoader {
   static const crySound = "cry.mp3";
   static const music = "music.mp3";
 
-  static late var chickenImage;
-  static late var enemyImage;
-  static late var logoImage;
-  static late var pauseImage;
+  static var chickenImage;
+  static var enemyImage;
+  static var logoImage;
+  static var pauseImage;
 
   static var player;
   static var musicPlayer;
@@ -37,7 +37,7 @@ class AssetLoader {
 
   static Future loadAll() async {
     chickenImage = await Flame.images.load(chickenpath);
-    enemyImage = await Flame.images.load(chickenpath);
+    enemyImage = await Flame.images.load(enemypath);
     pauseImage = await Flame.images.load(pausepath);
   }
 

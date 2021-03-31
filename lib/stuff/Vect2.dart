@@ -14,10 +14,10 @@ class Vect2<T extends num> {
   bool operator ==(v) => v is Vect2<T> && v.x == this.x && v.y == this.y;
 
   @override
-  int get hashCode => x.hashCode ^ y.hashCode;
+  int get hashCode => this._x.hashCode ^ this._y.hashCode;
 
-  T get x => this.x;
-  T get y => this.y;
+  T get x => this._x as T;
+  T get y => this._y as T;
   set x(T val) => _x = val;
   set y(T val) => _y = val;
 }

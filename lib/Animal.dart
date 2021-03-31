@@ -13,9 +13,9 @@ abstract class Animal {
   SpriteAnimation animationIdle;
   late SpriteAnimation currentAnimation;
 
-  late Vector2 pos;
+  late Vect2<double> pos;
   late Vect2<int> screenPos;
-  late Vector2 targetPos;
+  late Vect2<double> targetPos;
   late Vect2<int> mapPos;
   ChickenGame game;
 
@@ -32,9 +32,10 @@ abstract class Animal {
 
   void initPos(int x, int y) {
     mapPos = Vect2<int>(x, y);
-    targetPos = Vector2(0.0 + raster * mapPos.x, 0.0 + raster * mapPos.y);
+    targetPos = Vect2<double>(raster * mapPos.x, raster * mapPos.y);
     screenPos = Vect2<int>(mapPos.x, mapPos.y);
-    pos = Vector2(targetPos.x, targetPos.y);
+    pos = Vect2<double>(targetPos.x, targetPos.y);
+    print("init");
   }
 
   void render(Canvas canvas) {
@@ -42,7 +43,9 @@ abstract class Animal {
     if (currentAnimation == animationIdle) {
       currentAnimation.update(0.1);
     }
-    currentAnimation.getSprite().render(canvas, position: pos);
+    currentAnimation
+        .getSprite()
+        .render(canvas, position: Vector2(pos.x, pos.y));
   }
 
   void move(Direction dir) {
