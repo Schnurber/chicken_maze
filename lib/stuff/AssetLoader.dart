@@ -256,7 +256,7 @@ class AssetLoader {
               width: chickenWidth,
               height: chickenHeight,
               child: SpriteAnimationWidget(
-                anchor: Anchor.center,
+                anchor: Anchor.topLeft,
                 animation: logoAnimation,
               ),
             );

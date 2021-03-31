@@ -71,7 +71,7 @@ class ChickenApp extends StatelessWidget {
       checkerboardRasterCacheImages: false,
       debugShowMaterialGrid: false,
       title: 'Chicken Maze',
-      home: gamePage,
+      home: startPage,
       routes: <String, WidgetBuilder> {
         SettingsPage.route: (context) => settingsPage,
         AboutPage.route: (context) => aboutPage,

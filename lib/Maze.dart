@@ -92,7 +92,7 @@ class Maze {
     var id = tl.tileId;
     var gid = tl.gid;
     tl.gid = 0;
-    bool found = gid != null && gid > 0;
+    bool found = gid > 0;
     if (found) {
       //What?
       if (spawn.contains(id)) {
@@ -117,14 +117,14 @@ class Maze {
     await tiles.future;
     List<Vect2<int>> list = <Vect2<int>>[];
 
-    var all = <Tile>[];
-    tiles.map.layers[2].tiles.forEach((col) => col.forEach((e) => all.add(e)));
-    var enemies = all.where((t) => t.tileId >= 0);
-
-    enemies.forEach((Tile t) =>
-        list.add(Vect2<int>((t.px / raster).floor(), (t.py / raster).floor())));
-    //TODO: Dies sind nicht die Koordinaten, da die Positionen auf den Tilesets
-    // und nicht auf der Map! -> Verschachtelte Schleife mit Zähler?
+    var matrix = tiles.map.layers[2].tiles;
+    for (int i = 0; i < matrix.length; i++) {
+      for (int j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j].tileId > 0) {
+          list.add(Vect2<int>(i, j));
+        }
+      }
+    }
     return list;
   }
 }

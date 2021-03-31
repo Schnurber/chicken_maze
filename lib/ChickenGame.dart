@@ -76,6 +76,7 @@ class ChickenGame extends BaseGame with TapDetector {
           (this._dimensions.height / (raster * scaleFactor)).floor());
       startGame();
       initLevel();
+      AssetLoader.initMusic();
       _initialized = true;
     });
   }
@@ -97,19 +98,16 @@ class ChickenGame extends BaseGame with TapDetector {
       epos.forEach((p) => enemies.add(Enemy(this, p.x, p.y)));
     });
     inputHandler = InputHandler(this, maze, chicken);
-    AssetLoader.initMusic();
   }
 
   void restartLevel() {
-    //paused = true;
+    paused = true;
     direction = Direction.none;
-    /*
     _timerPaused = true;
     _pauseTimer = Timer(Duration(milliseconds: pauseMillis), () {
       _timerPaused = false;
       Ads.ad();
     });
-    */
   }
 
   /// Game loop
@@ -234,7 +232,6 @@ class ChickenGame extends BaseGame with TapDetector {
   void update(double t) {
     super.update(t);
     if (!_initialized) return;
-    /*
     if (!paused && chicken.lives <= 0) {
       paused = true;
       this._timerPaused = true;
@@ -243,6 +240,5 @@ class ChickenGame extends BaseGame with TapDetector {
         Navigator.of(context).pushReplacementNamed(GameOverPage.route);
       });
     }
-    */
   }
 }
