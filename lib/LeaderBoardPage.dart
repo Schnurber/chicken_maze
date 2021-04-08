@@ -35,7 +35,7 @@ class LeaderBoardPageState extends State<LeaderBoardPage> {
       future: LeaderBoard.getHiScore(),
       builder: (BuildContext context, AsyncSnapshot<List<List<String>>> snapshot) {
           scores = snapshot.data!;
-          if (scores == null || scores.length == 0) {
+          if (scores.length == 0) {
             return Container(
               child: Center( child: Text(Lang.of(context)!.t("WaitForLoading"), ), ),
             );

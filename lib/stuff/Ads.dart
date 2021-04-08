@@ -11,7 +11,6 @@ class Ads {
   }
 
   static void ad() {
-    
     AdmobInterstitial? myInterstitial;
     myInterstitial = AdmobInterstitial(
         adUnitId: myInterstitialId,

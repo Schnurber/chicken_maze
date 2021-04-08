@@ -18,6 +18,7 @@ import 'package:flame/gestures.dart';
 import 'dart:async';
 
 class ChickenGame extends BaseGame with TapDetector {
+  
   late Size _dimensions;
   late Chicken chicken;
   late Maze maze;
@@ -25,8 +26,8 @@ class ChickenGame extends BaseGame with TapDetector {
   late Timer _pauseTimer;
   late bool _timerPaused;
   bool _loaded;
-
   static const pauseMillis = 800;
+
   set paused(bool p) {
     if (p != _paused) {
       if (p) {
@@ -59,11 +60,10 @@ class ChickenGame extends BaseGame with TapDetector {
     paused = state.index != AppLifecycleState.resumed.index;
   }
 
-  ChickenGame(this.prefs) : _loaded = false {
+  ChickenGame(this.prefs) : _loaded = false, _timerPaused = false {
     Ads.init(this);
     AssetLoader.initMusic();
     this.paused = true;
-    this._timerPaused = false;
     AssetLoader.loadAll().then((value) {
       pauseImage = AssetLoader.pauseImage;
       level = 1;
@@ -153,7 +153,6 @@ class ChickenGame extends BaseGame with TapDetector {
       e.update();
       e.render(canvas);
     }
-    ;
     //Check if next level?
     if (maze.tileDimensions.x - 2 == chicken.mapPos.x &&
         maze.tileDimensions.y - 1 == chicken.mapPos.y) {

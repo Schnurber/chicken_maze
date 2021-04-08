@@ -162,7 +162,7 @@ class AssetLoader {
     }
   }
 
-  /*************** Enemy ******************/
+  //*************** Enemy ******************
 
   static SpriteAnimation get enemyAnimationRight {
     return SpriteAnimation.fromFrameData(
