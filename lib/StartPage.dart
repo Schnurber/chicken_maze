@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/Drawer.dart';
 import 'package:chicken_maze/ChickenGame.dart';
@@ -10,8 +9,6 @@ import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
 
-
-
 class StartPage extends StatelessWidget {
   final ChickenGame game;
   StartPage(this.game);
@@ -22,16 +19,14 @@ class StartPage extends StatelessWidget {
     return themed(
         context,
         Scaffold(
-            appBar: AppBar(title: Text(Lang.of(context).t("Start"))),
+            appBar: AppBar(title: Text(Lang.of(context)!.t("Start"))),
             drawer: buildDrawer(context, route, game.prefs, game),
             body: _start(context)));
   }
 
   Widget _start(BuildContext context) {
-    Widget chicken =
-        AssetLoader.getChickenWidget(
-          MediaQuery.of(context).size.width / 3 * 2
-        );
+    var w = MediaQuery.of(context).size.width / 3 * 2;
+    Widget chicken = AssetLoader.getChickenWidget(w, w);
 
     return Center(
       child: Column(children: <Widget>[
@@ -55,7 +50,7 @@ class StartPage extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, GamePage.route);
                   }
                 },
-                text: Lang.of(context).t("StartGame"))),
+                text: Lang.of(context)!.t("StartGame"))),
       ]),
     );
   }

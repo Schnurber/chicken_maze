@@ -16,7 +16,7 @@ class AboutPage extends StatelessWidget {
     return themed(
         context,
         Scaffold(
-            appBar: AppBar(title: Text(Lang.of(context).t("About"))),
+            appBar: AppBar(title: Text(Lang.of(context)!.t("About"))),
             drawer: buildDrawer(context, route, game.prefs, game),
             body: _about(context)));
   }
@@ -29,7 +29,7 @@ class AboutPage extends StatelessWidget {
           text: TextSpan(
             style: TextStyle(
                 fontFamily: gameFont, fontSize: 16 * getTextScale(context)),
-            text: Lang.of(context).t('info'),
+            text: Lang.of(context)!.t('info'),
           ),
           softWrap: true,
         ),

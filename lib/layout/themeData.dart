@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/stuff/constants.dart';
-import 'package:flame/text_config.dart';
+import 'package:flame/components.dart';
 
 ThemeData _themeData(BuildContext context) {
   double txtScale = getTextScale(context);
