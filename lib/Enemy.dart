@@ -8,13 +8,14 @@ import 'dart:math';
 
 class Enemy extends Animal {
 
-  Direction direction;
+  late Direction direction;
   double speed = 1.0;
-  Random rnd;
-  Vect2<int> initialPos;
-  bool isKilled;
+  late Random rnd;
+  late Vect2<int> initialPos;
+  late bool isKilled;
 
-  Enemy(ChickenGame game, int x, int y) : super(game,
+  Enemy(ChickenGame game, int x, int y) : super(
+      game, mapPos: Vect2<int>(1, 0),
       animationLeft: AssetLoader.enemyAnimationLeft,
       animationRight: AssetLoader.enemyAnimationRight,
       animationUp: AssetLoader.enemyAnimationUp,

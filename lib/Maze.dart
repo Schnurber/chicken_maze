@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:chicken_maze/stuff/Vect2.dart';
-import 'package:flame/position.dart';
+import 'package:flame/components.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/ChickenGame.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
@@ -9,21 +9,21 @@ import 'dart:async';
 import 'package:tiled/tiled.dart';
 
 class Maze {
-  Tiled tiles;
-  Vect2<int> screenTileDimensions;
-  Size mapDimensions;
-  Vect2<int> tileDimensions;
-  Position bgrPos;
-  Position bgrTargetPos;
-  Vect2<int> bgrTilePos;
-  ChickenGame game;
-  bool _initialized;
+  late Tiled tiles;
+  late Vect2<int> screenTileDimensions;
+  late Size mapDimensions;
+  late Vect2<int> tileDimensions;
+  late Vector2 bgrPos;
+  late Vector2 bgrTargetPos;
+  late Vect2<int> bgrTilePos;
+  late ChickenGame game;
+  late bool _initialized;
   bool get initialized => _initialized;
 
   Maze(this.game, this.screenTileDimensions) {
-    tiles = new Tiled("map${game.level}.tmx", Size(32, 32));
+    tiles = new Tiled("map${game.level}.tmx", Size(raster, raster));
     _initialized = false;
-    tiles.future.then((t) {
+    tiles.future!.then((t) {
       _initialized = true;
       tileDimensions =
           Vect2<int>(tiles.map.layers[0].width, tiles.map.layers[0].height);
@@ -33,8 +33,8 @@ class Maze {
       tiles.map.layers[2].visible = false;
       tiles.generate();
     });
-    bgrPos = Position(0, 0);
-    bgrTargetPos = Position(0, 0);
+    bgrPos = Vector2(0, 0);
+    bgrTargetPos = Vector2(0, 0);
     bgrTilePos = Vect2<int>(0, 0);
   }
 
@@ -70,7 +70,7 @@ class Maze {
     if (x < 0 || x >= tileDimensions.x) return true;
     if (y < 0 || y >= tileDimensions.y) return true;
     // ID of Tile ... Collision
-    var id = getTileFromLayer(0, x, y).tileId;
+    int id = getTileFromLayer(0, x, y).tileId;
     return id > 3 &&
         !passageOpened.contains(id); //A Hole form chicken-killing-power
   }
@@ -92,7 +92,7 @@ class Maze {
     var id = tl.tileId;
     var gid = tl.gid;
     tl.gid = 0;
-    bool found = gid != null && gid > 0;
+    bool found = gid > 0;
     if (found) {
       //What?
       if (spawn.contains(id)) {
@@ -117,13 +117,14 @@ class Maze {
     await tiles.future;
     List<Vect2<int>> list = <Vect2<int>>[];
 
-    var all = <Tile>[];
-    tiles.map.layers[2].tiles.forEach((col) => col.forEach((e) => all.add(e)));
-    var enemies = all.where((t) => t.tileId != null && t.tileId >= 0);
-
-    enemies.forEach((t) =>
-        list.add(Vect2((t.px / raster).floor(), (t.py / raster).floor())));
-
+    var matrix = tiles.map.layers[2].tiles;
+    for (int i = 0; i < matrix.length; i++) {
+      for (int j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j].tileId > 0) {
+          list.add(Vect2<int>(i, j));
+        }
+      }
+    }
     return list;
   }
 }

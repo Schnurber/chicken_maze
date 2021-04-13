@@ -23,7 +23,7 @@ class Lang {
 
   final Locale locale;
 
-  static Lang of(BuildContext context) {
+  static Lang? of(BuildContext context) {
     return Localizations.of<Lang>(context, Lang);
   }
 
@@ -33,7 +33,7 @@ class Lang {
 It is supposed to eat grains. 
 Power pills will allow it to break through 
 walls and destroy enemies.
-(c) 2019 by Dieter Meiller""",
+(c) 2021 by Dieter Meiller""",
       'WaitForLoading' : 'Waiting for network connection',
       'ChickenMaze' : 'Chicken Maze',
       'BitteWarten': 'Please wait',
@@ -72,7 +72,7 @@ Dabei soll es Körner Fressen.
 Kraft-Pillen ermöglichen es ihm, 
 Mauern zu durchbgrechen und Feinde 
 zu zerstörten.
-(c) 2019 by Dieter Meiller""",
+(c) 2021 by Dieter Meiller""",
       'WaitForLoading' : 'Warte auf Netzwerkverbindung',
       'ChickenMaze' : 'Chicken Maze',
       'BitteWarten': 'Bitte Warten',
@@ -110,7 +110,7 @@ zu zerstörten.
 Se supone que come granos. 
 Las píldoras de poder le permiten atravesar 
 muros y destruir enemigos. 
-(c) 2019 by Dieter Meiller""",
+(c) 2021 by Dieter Meiller""",
       'WaitForLoading' : 'Esperando la conexión de red',
       'BitteWarten': 'Espera por vavor',
       'Start': 'Inicio',
@@ -147,7 +147,7 @@ muros y destruir enemigos.
       Il est censé manger des céréales. 
       Les pilules de puissance lui permettent de percer 
       les murs et de détruire les ennemis.
-      (c) 2019 by Dieter Meiller""",
+      (c) 2021 by Dieter Meiller""",
       'WaitForLoading' : "En attente d'une connexion réseau",
       'ChickenMaze' : 'Chicken Maze',
       'BitteWarten': 'Veuillez patienter',
@@ -183,6 +183,6 @@ muros y destruir enemigos.
   };
 
   String t(String what) {
-    return _localizedValues[locale.languageCode][what];
+    return _localizedValues[locale.languageCode]![what]!;
   }
 }

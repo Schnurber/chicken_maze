@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/stuff/constants.dart';
-import 'package:flame/text_config.dart';
+import 'package:flame/components.dart';
 
 ThemeData _themeData(BuildContext context) {
   double txtScale = getTextScale(context);
@@ -10,10 +10,10 @@ ThemeData _themeData(BuildContext context) {
     accentColor: Colors.amber[600],
       fontFamily: gameFont,
       textTheme: TextTheme(
-      headline: TextStyle(fontSize: 72.0 * txtScale, 
+      headline5: TextStyle(fontSize: 72.0 * txtScale, 
       fontWeight: FontWeight.bold),
-      title: TextStyle(fontSize: 36.0 * txtScale, ),
-      body1: TextStyle(fontSize: 20.0 * txtScale, ),
+      headline6: TextStyle(fontSize: 36.0 * txtScale, ),
+      bodyText2: TextStyle(fontSize: 20.0 * txtScale, ),
       ),
   );
 }
@@ -32,6 +32,5 @@ double getTextScale(BuildContext context) {
 TextConfig gameTextConf(BuildContext context, double faktor) {
   // double fakt = MediaQuery.of(context).textScaleFactor;
   double fakt = getTextScale(context) / faktor;
-  return TextConfig(textAlign: TextAlign.left, fontSize: 15 * fakt, fontFamily: gameFont,
-      color: Colors.white);
+  return TextConfig(textAlign: TextAlign.left, fontSize: 15 * fakt, fontFamily: gameFont, color: Colors.white);
 }
