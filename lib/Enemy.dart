@@ -100,7 +100,6 @@ class Enemy extends Animal {
 
   /// looks for all possible directions and take one random or idle
   Direction getPossibleDirection() {
-
     List<Direction> directions = Direction.values;
     List<Direction> possibleDirections = [];
     directions.forEach((d) {
@@ -124,8 +123,7 @@ class Enemy extends Animal {
   }
 
   @override
-  void sound() {
-    // No Sound
+  void sound() { // No Sound
   }
 
   @override 

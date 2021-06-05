@@ -114,7 +114,7 @@ class InputHandler {
     var dX = xp - centerX;
     var dY = yp - centerY;
     if (dX.abs() > dY.abs()) {
-      //Horiz
+      //Horizontal
       if (dX > 0) {
         // R
         _moveDir(Direction.right);
@@ -123,7 +123,7 @@ class InputHandler {
         _moveDir(Direction.left);
       }
     } else {
-      // Verti
+      // Vertical
       if (dY > 0) {
         // D
         _moveDir(Direction.down);
