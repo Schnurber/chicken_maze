@@ -16,12 +16,12 @@ class InputHandler {
     if (dir == Direction.up) {
       if (maze.isObstacle(chicken.mapPos.x, chicken.mapPos.y - 1)) {
         //Make a hole?
-        Tile tile =
+        Tile? tile =
             maze.getTileFromLayer(0, chicken.mapPos.x, chicken.mapPos.y - 1);
-        if (chicken.canKill > 0 && tile.tileId == passageClosed[0]) {
+        if (tile != null && chicken.canKill > 0 && tile.localId == passageClosed[0]) {
           chicken.canKill--;
-          tile.tileId = passageOpened[0];
-          tile.gid = tile.tileId + 1;
+          tile.localId = passageOpened[0];
+          tile.localId = tile.localId + 1;
         }
         chicken.sound();
         return;
@@ -38,12 +38,12 @@ class InputHandler {
     if (dir == Direction.down) {
       if (maze.isObstacle(chicken.mapPos.x, chicken.mapPos.y + 1)) {
         //Make a hole?
-        Tile tile =
+        Tile? tile =
             maze.getTileFromLayer(0, chicken.mapPos.x, chicken.mapPos.y + 1);
-        if (chicken.canKill > 0 && tile.tileId == passageClosed[0]) {
+        if (tile != null && chicken.canKill > 0 && tile.localId == passageClosed[0]) {
           chicken.canKill--;
-          tile.tileId = passageOpened[0];
-          tile.gid = tile.tileId + 1; //id!= gid
+          tile.localId = passageOpened[0];
+          tile.localId = tile.localId + 1; //id!= gid
         }
         chicken.sound();
         return;
@@ -61,12 +61,12 @@ class InputHandler {
     if (dir == Direction.left) {
       if (maze.isObstacle(chicken.mapPos.x - 1, chicken.mapPos.y)) {
         //Make a hole?
-        Tile tile =
+        Tile? tile =
             maze.getTileFromLayer(0, chicken.mapPos.x - 1, chicken.mapPos.y);
-        if (chicken.canKill > 0 && tile.tileId == passageClosed[1]) {
+        if (tile != null && chicken.canKill > 0 && tile.localId == passageClosed[1]) {
           chicken.canKill--;
-          tile.tileId = passageOpened[1];
-          tile.gid = tile.tileId + 1;
+          tile.localId = passageOpened[1];
+          tile.localId = tile.localId + 1;
         }
         chicken.sound();
         return;
@@ -84,12 +84,12 @@ class InputHandler {
     if (dir == Direction.right) {
       if (maze.isObstacle(chicken.mapPos.x + 1, chicken.mapPos.y)) {
         //Make a hole?
-        Tile tile =
+        Tile? tile =
             maze.getTileFromLayer(0, chicken.mapPos.x + 1, chicken.mapPos.y);
-        if (chicken.canKill > 0 && tile.tileId == passageClosed[1]) {
+        if (tile != null && chicken.canKill > 0 && tile.localId == passageClosed[1]) {
           chicken.canKill--;
-          tile.tileId = passageOpened[1];
-          tile.gid = tile.tileId + 1;
+          tile.localId = passageOpened[1];
+          tile.localId = tile.localId + 1;
         }
         chicken.sound();
         return;

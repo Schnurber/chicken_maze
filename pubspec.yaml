@@ -10,11 +10,12 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flame: ^1.0.0-rc8
+  flame: ^1.0.0-releasecandidate.11
+
   flame_tiled: #^0.1.0
     git:
       url: https://github.com/Schnurber/flame_tiled.git
-      ref: for_tiled
+      ref: dev
 
   http: ^0.13.1
   crypto: ^3.0.1
