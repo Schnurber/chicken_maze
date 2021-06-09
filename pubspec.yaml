@@ -19,8 +19,8 @@ dependencies:
   http: ^0.13.1
   crypto: ^3.0.1
   shared_preferences: ^2.0.5
-  admob_flutter: ^2.0.0-nullsafety.0
-  flame_audio: ^0.1.0-rc5
+  admob_flutter: 2.0.0-nullsafety.0
+  flame_audio: 0.1.0-rc5
   cupertino_icons: ^0.1.2
   
 dev_dependencies:
