@@ -23,15 +23,13 @@ class Maze {
   Maze(this.game, this.screenTileDimensions) {
     tiles = new Tiled("map${game.level}.tmx", Size(raster, raster));
     _initialized = false;
-    tiles.future!.then((t) {
+    tiles.future.then((t) {
       _initialized = true;
-
       tileDimensions = Vect2<int>(tiles.map.tileWidth, tiles.map.tileHeight);
-      print("Maze: ${tileDimensions.x}, ${tileDimensions.y}");
       mapDimensions =
           Size((tileDimensions.x) * raster, (tileDimensions.y) * raster);
       tiles.map.layers[2].visible = false;
-      tiles.generate();
+      //tiles.generate();
     });
     bgrPos = Vector2(0, 0);
     bgrTargetPos = Vector2(0, 0);
@@ -117,6 +115,7 @@ class Maze {
   }
 
   void render(Canvas canvas) {
+    //print("Loaded: ${tiles.image}");
     tiles.render(canvas);
   }
 

@@ -25,6 +25,7 @@ class StartPage extends StatelessWidget {
   }
 
   Widget _start(BuildContext context) {
+    print("Foo");
     var w = MediaQuery.of(context).size.width / 3 * 2;
     Widget chicken = AssetLoader.getChickenWidget(w, w);
 
