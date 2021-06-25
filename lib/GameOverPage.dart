@@ -4,62 +4,73 @@ import 'package:chicken_maze/ChickenGame.dart';
 import 'package:chicken_maze/GamePage.dart';
 import 'package:chicken_maze/layout/FineButton.dart';
 import 'package:chicken_maze/layout/themeData.dart';
-import 'package:flame/flame.dart';
-import 'package:flame/position.dart';
 import 'package:chicken_maze/stuff/AssetLoader.dart';
 import 'package:chicken_maze/stuff/HiScore.dart';
 import 'package:chicken_maze/stuff/i18n.dart';
 
 class GameOverPage extends StatelessWidget {
-
   static final String route = '/game_over';
 
   final ChickenGame game;
   GameOverPage(this.game);
 
-
   Widget build(BuildContext context) {
-
-    return themed(context, Scaffold(
-        appBar: AppBar(title: Text(Lang.of(context).t("GameOver"))),
-        drawer: buildDrawer(context, GameOverPage.route, game.prefs, game),
-        body: _gameOver())
-    );
+    return themed(
+        context,
+        Scaffold(
+            appBar: AppBar(title: Text(Lang.of(context)!.t("GameOver"))),
+            drawer: buildDrawer(context, GameOverPage.route, game.prefs, game),
+            body: _gameOver()));
   }
 
   FutureBuilder<bool> _gameOver() {
-    var score =  this.game.score ?? 0;
+    var score = this.game.score;
     return FutureBuilder<bool>(
         future: HiScore.setHiScore(score),
         builder: (BuildContext context, AsyncSnapshot<bool> hi) {
           var sc = getTextScale(context);
-          Widget chicken = Flame.util.animationAsWidget(Position(170 * sc, 170 * sc),
-              AssetLoader.logoAnimation);
+          var w = 170 * sc;
+          Widget chicken = AssetLoader.getChickenWidget(w, w);
+
           TextStyle ts = TextStyle(fontSize: 32 * sc);
           var pd = EdgeInsets.only(top: 30, bottom: 10);
           var list = <Widget>[];
+
           /// If it is hiscore add new text
           if (hi.hasData && hi.data == true) {
-            list.add(Container(padding: pd,
-                child: Text(Lang.of(context).t("NewHighScore"), style: ts,)));
+            list.add(Container(
+                padding: pd,
+                child: Text(
+                  Lang.of(context)!.t("NewHighScore"),
+                  style: ts,
+                )));
           }
 
-          list.add(Container(padding: pd,
-              child: Text(Lang.of(context).t("GameOver"), style: ts,)),);
-          list.add(Container(padding: pd,
+          list.add(
+            Container(
+                padding: pd,
+                child: Text(
+                  Lang.of(context)!.t("GameOver"),
+                  style: ts,
+                )),
+          );
+          list.add(Container(
+              padding: pd,
               child: Text(
-                  Lang.of(context).t("YourScore")+" $score", style: ts,)));
-          list.add( Expanded(child: chicken));
-          list.add(Container(padding: EdgeInsets.only(top: 10 * sc, bottom: 50 * sc),
+                Lang.of(context)!.t("YourScore") + " $score",
+                style: ts,
+              )));
+          list.add(Expanded(child: chicken));
+          list.add(Container(
+              padding: EdgeInsets.only(top: 10 * sc, bottom: 50 * sc),
               child: FineButton(
                   onPressed: () {
                     game.startGame();
                     game.initLevel();
                     game.paused = false;
-                    Navigator.pushReplacementNamed(
-                        context, GamePage.route);
+                    Navigator.pushReplacementNamed(context, GamePage.route);
                   },
-                  text: Lang.of(context).t("PlayAgain"))));
+                  text: Lang.of(context)!.t("PlayAgain"))));
 
           return Center(
             child: Column(children: list),

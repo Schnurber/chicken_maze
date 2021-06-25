@@ -34,9 +34,9 @@ void _get(HttpRequest request) async {
 
 void _set(HttpRequest request) async {
     request.response.headers.contentType = new ContentType("text", "html", charset: "utf-8");
-    String name = request.uri.queryParameters['name'];
-    String score = request.uri.queryParameters['score'];
-    String hashv = request.uri.queryParameters['hash'];
+    String name = request.uri.queryParameters['name']!;
+    String score = request.uri.queryParameters['score']!;
+    String hashv = request.uri.queryParameters['hash']!;
     var key = utf8.encode(secret);
     var bytes = utf8.encode('$name$score');
     var hmacSha256 = new Hmac(sha256, key);
