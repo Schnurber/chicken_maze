@@ -12,7 +12,6 @@ class Vect2<T extends num> {
 
   @override
   bool operator ==(v) => v is Vect2<T> && v.x == this.x && v.y == this.y;
-
   @override
   int get hashCode => this._x.hashCode ^ this._y.hashCode;
 

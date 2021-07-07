@@ -23,7 +23,7 @@ class Maze {
   Maze(this.game, this.screenTileDimensions) {
     tiles = new Tiled("map${game.level}.tmx", Size(raster, raster));
     _initialized = false;
-    tiles.future.then((t) {
+    tiles.future!.then((t) {
       _initialized = true;
       tileDimensions = Vect2<int>(tiles.map.tileWidth, tiles.map.tileHeight);
       mapDimensions =
