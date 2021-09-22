@@ -25,13 +25,11 @@ class Maze {
     _initialized = false;
     tiles.future!.then((t) {
       _initialized = true;
-      tileDimensions =
-          Vect2<int>(tiles.map.layers[0].width, tiles.map.layers[0].height);
-      print("Maze: ${tileDimensions.x}, ${tileDimensions.y}");
+      tileDimensions = Vect2<int>(tiles.map.tileWidth, tiles.map.tileHeight);
       mapDimensions =
           Size((tileDimensions.x) * raster, (tileDimensions.y) * raster);
       tiles.map.layers[2].visible = false;
-      tiles.generate();
+      //tiles.generate();
     });
     bgrPos = Vector2(0, 0);
     bgrTargetPos = Vector2(0, 0);
@@ -70,13 +68,19 @@ class Maze {
     if (x < 0 || x >= tileDimensions.x) return true;
     if (y < 0 || y >= tileDimensions.y) return true;
     // ID of Tile ... Collision
-    int id = getTileFromLayer(0, x, y).tileId;
-    return id > 3 &&
+    int? id = getTileFromLayer(0, x, y)?.localId;
+    return id != null &&
+        id > 3 &&
         !passageOpened.contains(id); //A Hole form chicken-killing-power
   }
 
-  Tile getTileFromLayer(int num, int x, int y) {
-    return tiles.map.layers[num].tiles[y][x];
+  Tile? getTileFromLayer(int num, int x, int y) {
+    var gid = (tiles.map.layers[num] as TileLayer).tileData?[y][x];
+    if (gid != null) {
+      return tiles.map.tileByGid(gid.tile);
+    } else {
+      return null;
+    }
   }
 
   bool obstacle(Vect2<int> o) {
@@ -89,10 +93,11 @@ class Maze {
     if (y < 0 || y >= tileDimensions.y) return true;
     // ID of Tile ... Collision
     var tl = getTileFromLayer(1, x, y);
-    var id = tl.tileId;
-    var gid = tl.gid;
-    tl.gid = 0;
-    bool found = gid > 0;
+    var id = tl!.localId;
+    var gid = (tiles.map.layers[1] as TileLayer).tileData?[y][x];
+    tl.localId = 0;
+
+    bool found = gid != null && gid.tile > 0;
     if (found) {
       //What?
       if (spawn.contains(id)) {
@@ -110,6 +115,7 @@ class Maze {
   }
 
   void render(Canvas canvas) {
+    //print("Loaded: ${tiles.image}");
     tiles.render(canvas);
   }
 
@@ -117,11 +123,14 @@ class Maze {
     await tiles.future;
     List<Vect2<int>> list = <Vect2<int>>[];
 
-    var matrix = tiles.map.layers[2].tiles;
-    for (int i = 0; i < matrix.length; i++) {
-      for (int j = 0; j < matrix[i].length; j++) {
-        if (matrix[i][j].tileId > 0) {
-          list.add(Vect2<int>(i, j));
+    //var matrix = tiles.map.layers[2].tiles;
+    var matrix = (tiles.map.layers[2] as TileLayer).tileData;
+    if (matrix != null) {
+      for (int i = 0; i < matrix.length; i++) {
+        for (int j = 0; j < matrix[i].length; j++) {
+          if (matrix[i][j].tile > 0) {
+            list.add(Vect2<int>(i, j));
+          }
         }
       }
     }

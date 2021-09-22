@@ -214,10 +214,10 @@ class ChickenGame extends BaseGame with TapDetector {
   }
 
   @override
-  void onTapDown(TapDownDetails evt) {
+  void onTapDown(TapDownInfo evt) {
     if (!_loaded) return;
-    var xp = evt.globalPosition.dx;
-    var yp = evt.globalPosition.dy;
+    var xp = evt.raw.globalPosition.dx;
+    var yp = evt.raw.globalPosition.dy;
     if (paused || !maze.initialized) return;
     if (xp < raster * scaleFactor &&
         yp > this._dimensions.height - raster * scaleFactor) {

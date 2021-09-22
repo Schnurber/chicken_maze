@@ -43,9 +43,9 @@ class AssetLoader {
 
   static void loadAudio() {
     assert(player != null);
-    player?.clearCache();
+    //player?.clearCache();
     player?.loadAll([chickenSound, pickSound, crySound, music]);
-    player?.disableLog();
+    //player?.disableLog();
   }
 
   static SpriteAnimation get chickenAnimationRight {
