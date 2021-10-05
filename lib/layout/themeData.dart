@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chicken_maze/stuff/constants.dart';
-import 'package:flame/text_config.dart';
+import 'package:flame/components.dart';
 
 ThemeData _themeData(BuildContext context) {
   double txtScale = getTextScale(context);
@@ -8,13 +8,17 @@ ThemeData _themeData(BuildContext context) {
     brightness: Brightness.dark,
     primaryColor: Colors.deepOrange[800],
     accentColor: Colors.amber[600],
-      fontFamily: gameFont,
-      textTheme: TextTheme(
-      headline: TextStyle(fontSize: 72.0 * txtScale, 
-      fontWeight: FontWeight.bold),
-      title: TextStyle(fontSize: 36.0 * txtScale, ),
-      body1: TextStyle(fontSize: 20.0 * txtScale, ),
+    fontFamily: gameFont,
+    textTheme: TextTheme(
+      headline5:
+          TextStyle(fontSize: 72.0 * txtScale, fontWeight: FontWeight.bold),
+      headline6: TextStyle(
+        fontSize: 36.0 * txtScale,
       ),
+      bodyText2: TextStyle(
+        fontSize: 20.0 * txtScale,
+      ),
+    ),
   );
 }
 
@@ -26,12 +30,14 @@ Theme themed(BuildContext context, Widget child) {
 }
 
 double getTextScale(BuildContext context) {
-   return MediaQuery.of(context).size.width / 320.0;
+  return MediaQuery.of(context).size.width / 320.0;
 }
 
-TextConfig gameTextConf(BuildContext context, double faktor) {
+TextPaint gameTextConf(BuildContext context, double faktor) {
   // double fakt = MediaQuery.of(context).textScaleFactor;
   double fakt = getTextScale(context) / faktor;
-  return TextConfig(textAlign: TextAlign.left, fontSize: 15 * fakt, fontFamily: gameFont,
-      color: Colors.white);
+  var tc = TextPaintConfig(
+          fontSize: 15 * fakt, fontFamily: gameFont, color: Colors.white)
+      .withTextAlign(TextAlign.left);
+  return TextPaint(config: tc);
 }
