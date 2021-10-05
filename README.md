@@ -10,7 +10,7 @@ There are no comments inside because all the explainations are inside the book.
 
 The book is available at De Gruyter:
 
-[Book](https://www.amazon.de/dp/3110690640/ref=cm_sw_em_r_mt_dp_U_TF4xEbN4AZSA7)
+[Book](https://www.degruyter.com/document/doi/10.1515/9783110721331/html)
 
 ![Book](book.jpg)
 
