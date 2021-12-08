@@ -6,7 +6,7 @@ function conf(){
 	'host'		=> 	'localhost',
 	'user'		=> 	'root',
 	'pass'		=> 	'root',
-	'database'	=> 	'chickenscores',
+	'database'	=> 	'chicken',
 	'engine'	=>	'InnoDB',
 	'secret'	=>  'foobar',
 	];
