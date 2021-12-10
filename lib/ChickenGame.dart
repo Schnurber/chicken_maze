@@ -47,7 +47,7 @@ class ChickenGame extends BaseGame with TapDetector {
   late Direction direction;
   late InputHandler inputHandler;
   late List<Enemy> enemies;
-  late Vect2<int> screenTileDimensions;
+  Vect2<int> screenTileDimensions = Vect2(0, 0);
   late int score;
   late Vect2<int> spawnPos;
   late int level;
