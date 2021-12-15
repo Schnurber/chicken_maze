@@ -76,7 +76,7 @@ class Maze {
   }
 
   Tile getTileFromLayer(int num, int x, int y) {
-    return tiles.map.layers[num].tiles[y][x];
+    return tiles.map.layers[num].tiles[y < 0 ? 0 : y][x < 0 ? 0 : x];
   }
 
   bool obstacle(Vect2<int> o) {
