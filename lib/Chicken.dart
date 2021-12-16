@@ -4,7 +4,7 @@ import 'package:chicken_maze/Animal.dart';
 import 'package:chicken_maze/stuff/constants.dart';
 import 'package:chicken_maze/stuff/Vect2.dart';
 import 'package:flame/components.dart';
-import 'dart:async';
+import 'dart:async' as async;
 
 class Chicken extends Animal {
   Chicken(ChickenGame game)
@@ -88,11 +88,11 @@ class Chicken extends Animal {
 
   void idle() {
     timer?.stop();
-    timer = Timer(1, callback: () {
+    timer = (async.Timer(Duration(seconds: 2),  () {
       if (game.direction == Direction.none) {
-        currentAnimation = animationIdle;
-      }
-    });
+      currentAnimation = animationIdle;
+      currentAnimation.update(1);
+    }}) as Timer?);
   }
 
   @override
