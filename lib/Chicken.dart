@@ -88,7 +88,7 @@ class Chicken extends Animal {
 
   void idle() {
     timer?.stop();
-    timer = Timer(2000, callback: () {
+    timer = Timer(1, callback: () {
       if (game.direction == Direction.none) {
         currentAnimation = animationIdle;
       }
